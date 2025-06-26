@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Media Lounge P7 Criativo - Hub de Conteúdo Digital em BH</title>
+		<meta name="description" content="Estúdio profissional de produção audiovisual no coração de Belo Horizonte. Parceria 4 Nexus + P7 Criativo para transformar suas ideias em conteúdo de alta qualidade." />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--primary-coral: #FF5A3D;
+		--primary-orange: #e15e3b;
+		--secondary-yellow: #FFB83D;
+		--dark-gray: #2D2D2D;
+		--medium-gray: #6B7280;
+		--light-gray: #F9FAFB;
+		--white: #FFFFFF;
+		--black: #111827;
+		--gradient-primary: linear-gradient(135deg, #FF5A3D, #e15e3b);
+		--gradient-secondary: linear-gradient(135deg, #e15e3b, #FFB83D);
+		--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+		--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+		--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+		--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+	}
+
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		font-size: 16px;
+	}
+
+	body {
+		font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		line-height: 1.6;
+		color: var(--dark-gray);
+		background-color: var(--white);
+		font-weight: 400;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.container {
+		max-width: 1280px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.section-padding {
+		padding: 6rem 0;
+	}
+
+	.section-title {
+		font-size: 3rem;
+		font-weight: 800;
+		line-height: 1.1;
+		color: var(--black);
+		margin-bottom: 1.5rem;
+		letter-spacing: -0.025em;
+	}
+
+	.section-subtitle {
+		font-size: 1.25rem;
+		line-height: 1.7;
+		color: var(--medium-gray);
+		/* max-width: 52rem; */
+	}
+
+	.gradient-text {
+		background: var(--gradient-primary);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		padding: 1rem 2rem;
+		border-radius: 0.75rem;
+		font-weight: 600;
+		font-size: 1rem;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		cursor: pointer;
+		border: none;
+		white-space: nowrap;
+	}
+
+	.btn-primary {
+		background: var(--gradient-primary);
+		color: white;
+		box-shadow: var(--shadow-lg);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-xl);
+	}
+
+	.btn-secondary {
+		background: white;
+		color: var(--primary-coral);
+		border: 2px solid var(--primary-coral);
+	}
+
+	.btn-secondary:hover {
+		background: var(--primary-coral);
+		color: white;
+	}
+
+	.card {
+		background: white;
+		border-radius: 1rem;
+		padding: 2rem;
+		box-shadow: var(--shadow-lg);
+		border: 1px solid rgba(255, 90, 61, 0.1);
+		transition: all 0.3s ease;
+	}
+
+	.card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--shadow-xl);
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 0 1rem;
+		}
+		
+		.section-padding {
+			padding: 4rem 0;
+		}
+
+		.section-title {
+			font-size: 2.25rem;
+		}
+
+		.section-subtitle {
+			font-size: 1.125rem;
+		}
+
+		.btn {
+			padding: 0.875rem 1.5rem;
+			font-size: 0.875rem;
+		}
+	}
+</style>
