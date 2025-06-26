@@ -160,7 +160,7 @@
 									<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
 									<polyline points="12,6 12,12 16,14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
-								Vagas limitadas para junho de 2025
+								Vagas limitadas
 							</span>
 						</div>
 					</div>
@@ -484,24 +484,26 @@
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
 		const form = document.getElementById('contactForm');
-		
+		const whatsappNumber = '5527995137274'; // Número de WhatsApp fornecido
+
 		if (form) {
 			form.addEventListener('submit', function(e) {
 				e.preventDefault();
 				
-				// Simulate form submission
-				const button = form.querySelector('.submit-button');
-				const originalText = button.innerHTML;
+				const name = (document.getElementById('name') as HTMLInputElement).value;
+				const email = (document.getElementById('email') as HTMLInputElement).value;
+				const phone = (document.getElementById('phone') as HTMLInputElement).value;
+				const project = (document.getElementById('project') as HTMLSelectElement).value;
+				const message = (document.getElementById('message') as HTMLTextAreaElement).value;
+
+				const fullMessage = `Olá, gostaria de mais informações sobre o projeto P7 Criativo.\n\nNome: ${name}\nE-mail: ${email}\nTelefone/WhatsApp: ${phone}\nTipo de Projeto: ${project}\n\nMensagem: ${message}`;
+				const encodedMessage = encodeURIComponent(fullMessage);
 				
-				button.innerHTML = '<span>Enviando...</span>';
-				button.disabled = true;
+				const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 				
-				setTimeout(() => {
-					alert('Obrigado pelo seu interesse! Nossa equipe entrará em contato em breve.');
-					form.reset();
-					button.innerHTML = originalText;
-					button.disabled = false;
-				}, 2000);
+				window.open(whatsappUrl, '_blank');
+				
+				(form as HTMLFormElement).reset();
 			});
 		}
 	});
