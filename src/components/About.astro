@@ -58,7 +58,7 @@
 			</div>
 
 			<div class="about-visual">
-				<div class="stats-grid">
+				<!-- <div class="stats-grid">
 					<div class="stat-card">
 						<div class="stat-number">2018</div>
 						<div class="stat-label">Fundação da 4Nexus</div>
@@ -75,7 +75,9 @@
 						<div class="stat-number">100%</div>
 						<div class="stat-label">Qualidade Profissional</div>
 					</div>
-				</div>
+				</div> -->
+
+				<img src="/images/IMG_6401.jpg" alt="Studio P7 Criativo" class="about-image" />
 
 				<div class="concept-card">
 					<div class="concept-header">
@@ -111,6 +113,17 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 5rem;
 		align-items: start;
+	}
+
+	.about-image {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		border-radius: 1rem;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+		border: 1px solid rgba(255, 90, 61, 0.2);
+		transition: all 0.3s ease;
+		backdrop-filter: blur(10px);
 	}
 
 	.section-header {
