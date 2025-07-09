@@ -485,9 +485,10 @@
 	document.addEventListener('DOMContentLoaded', function() {
 		const form = document.getElementById('contactForm');
 		const whatsappNumber = '5527995137274'; // Número de WhatsApp fornecido
+		const webhookUrl = 'https://n8n-4hi7-production.up.railway.app/webhook/0ff4ec4e-ef28-43a4-bead-39c9d1c895p7'; // Novo URL do webhook
 
 		if (form) {
-			form.addEventListener('submit', function(e) {
+			form.addEventListener('submit', async function(e) {
 				e.preventDefault();
 				
 				const name = (document.getElementById('name') as HTMLInputElement).value;
@@ -496,6 +497,29 @@
 				const project = (document.getElementById('project') as HTMLSelectElement).value;
 				const message = (document.getElementById('message') as HTMLTextAreaElement).value;
 
+				const formData = {
+					name,
+					email,
+					phone,
+					project,
+					message
+				};
+
+				// Enviar dados para o webhook
+				try {
+					await fetch(webhookUrl, {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(formData)
+					});
+					console.log('Dados enviados com sucesso para o webhook.');
+				} catch (error) {
+					console.error('Erro ao enviar dados para o webhook:', error);
+				}
+
+				// Enviar dados para o WhatsApp
 				const fullMessage = `Olá, gostaria de mais informações sobre o projeto P7 Criativo.\n\nNome: ${name}\nE-mail: ${email}\nTelefone/WhatsApp: ${phone}\nTipo de Projeto: ${project}\n\nMensagem: ${message}`;
 				const encodedMessage = encodeURIComponent(fullMessage);
 				
