@@ -17,9 +17,10 @@ P7 Criativo<br />
             </h1>
 
             <p className="hero-subtitle">
-
-
-
+              Studio de Podcast<br />
+              Gravação de vídeo aula<br />
+              Transmissão ao vivo<br />
+              Espaço Chroma Key
             </p>
 
             <div className="hero-features">
