@@ -1,14 +1,29 @@
 import { useState, type FormEvent } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '', email: '', phone: '', project: '', message: ''
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setSubmitting(true);
+
+    try {
+      await (supabase as any).from('leads').insert({
+        nome: formData.name,
+        telefone: formData.phone,
+        interesse: formData.project,
+      });
+    } catch (err) {
+      console.error('Erro ao salvar lead:', err);
+    }
+
     const text = `Olá! Meu nome é ${formData.name}. Email: ${formData.email}. Tel: ${formData.phone}. Projeto: ${formData.project}. ${formData.message}`;
     window.open(`https://wa.me/5531983363297?text=${encodeURIComponent(text)}`, '_blank');
+    setSubmitting(false);
   };
 
   return (
