@@ -1,4 +1,56 @@
+import { useState, useEffect, useCallback } from 'react';
+
+const heroSlides = [
+  {
+    img: '/images/edificio_externo.jpg',
+    alt: 'Edifício P7 Criativo - Praça Sete',
+    overlay: (
+      <div className="hero-slide-label">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Praça Sete | Belo Horizonte</span>
+      </div>
+    ),
+  },
+  {
+    img: '/images/IMG_6394.jpg',
+    alt: 'Studio P7 Criativo',
+    overlay: null,
+  },
+  {
+    img: '/images/chroma_key.jpg',
+    alt: 'Espaço Chroma Key',
+    overlay: (
+      <div className="hero-slide-label">
+        <span>Espaço Chroma Key</span>
+      </div>
+    ),
+  },
+  {
+    img: '/images/transmissao_ao_vivo.jpg',
+    alt: 'Transmissões ao Vivo',
+    overlay: (
+      <div className="hero-slide-label">
+        <span>Transmissões ao Vivo</span>
+      </div>
+    ),
+  },
+  {
+    img: '/images/lounge.jpg',
+    alt: 'Lounge P7 Criativo',
+    overlay: null,
+  },
+];
+
 const Hero = () => {
+  const [current, setCurrent] = useState(0);
+
+  const next = useCallback(() => setCurrent((c) => (c + 1) % heroSlides.length), []);
+
+  useEffect(() => {
+    const timer = setInterval(next, 2500);
+    return () => clearInterval(timer);
+  }, [next]);
+
   return (
     <section className="hero">
       <div className="container">
@@ -12,16 +64,30 @@ const Hero = () => {
             </div>
 
             <h1 className="hero-title">
-              Studio<br />
+              Studio de gravações<br />
               <span className="gradient-text">P7 Criativo</span>
             </h1>
 
-            <p className="hero-subtitle">
-              Studio de Podcast completo<br />
-              Espaço para gravação de vídeo aula<br />
-              Espaço Chroma Key<br />
-              Espaço para transmissão ao vivo
-            </p>
+            <div className="hero-subtitle-list">
+              <div className="hero-subtitle-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="hsl(14, 90%, 60%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                <span>Studio de Podcast completo</span>
+              </div>
+              <div className="hero-subtitle-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="hsl(14, 90%, 60%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M23 7L16 12L23 17V7Z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                <span>Espaço para gravação de vídeo aula</span>
+              </div>
+              <div className="hero-subtitle-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="hsl(14, 90%, 60%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                <span>Espaço Chroma Key</span>
+              </div>
+              <div className="hero-subtitle-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="hsl(14, 90%, 60%)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+                <span>Espaço para transmissão ao vivo</span>
+              </div>
+            </div>
+
+            <p className="hero-pricing gradient-text">Gravação + Edição à partir de R$499</p>
 
             <div className="hero-features">
               <div className="feature-grid">
@@ -63,10 +129,30 @@ const Hero = () => {
 
           <div className="hero-visual">
             <div className="hero-image-container">
-              <img src="/images/IMG_6394.jpg" alt="Studio P7 Criativo" className="hero-image" />
+              <div className="hero-carousel-track">
+                {heroSlides.map((slide, i) => (
+                  <div
+                    key={i}
+                    className={`hero-carousel-slide ${i === current ? 'active' : ''}`}
+                  >
+                    <img src={slide.img} alt={slide.alt} className="hero-image" />
+                    {slide.overlay && (
+                      <div className="hero-carousel-overlay">{slide.overlay}</div>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div className="hero-carousel-dots">
+                {heroSlides.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`hero-dot ${i === current ? 'active' : ''}`}
+                    onClick={() => setCurrent(i)}
+                  />
+                ))}
+              </div>
               <div className="image-overlay">
                 <div className="overlay-info">
-                  <div className="location-badge">24º Andar - P7 Criativo</div>
                   <div className="stats-overlay">
                     <div className="stat-overlay">
                       <div className="stat-number">3</div>
