@@ -12,7 +12,7 @@ const Contact = () => {
     setSubmitting(true);
 
     try {
-      await supabase.from('leads').insert({
+      await (supabase as any).from('leads').insert({
         nome: formData.name,
         telefone: formData.phone,
         interesse: formData.project,
