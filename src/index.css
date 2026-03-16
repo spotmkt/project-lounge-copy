@@ -1360,8 +1360,8 @@
   }
 
   .hero-image-container {
-    max-height: 400px;
-    aspect-ratio: auto;
+    aspect-ratio: 4/5;
+    max-height: 450px;
   }
 
   .about-content {
