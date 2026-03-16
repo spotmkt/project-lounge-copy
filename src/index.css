@@ -1347,6 +1347,20 @@
     order: -1;
   }
 
+  .hero-badge-mobile {
+    order: -2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-badge-extra {
+    display: none;
+  }
+
+  .hero-badge-desktop {
+    display: none;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
