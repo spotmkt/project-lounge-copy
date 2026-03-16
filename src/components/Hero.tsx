@@ -17,8 +17,10 @@ const Hero = () => {
             </h1>
 
             <p className="hero-subtitle">
-              Um hub de conteúdo digital e inovação no coração de Belo Horizonte!
-              Transforme suas ideias em conteúdo profissional com estrutura, técnica e inovação.
+              Studio de Podcast completo<br />
+              Espaço para gravação de vídeo aula<br />
+              Espaço Chroma Key<br />
+              Espaço para transmissão ao vivo
             </p>
 
             <div className="hero-features">
