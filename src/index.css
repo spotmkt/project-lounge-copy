@@ -237,6 +237,10 @@
   margin-bottom: 1.5rem;
 }
 
+.hero-badge-mobile {
+  display: none;
+}
+
 .badge-icon {
   display: flex;
   align-items: center;
@@ -1345,6 +1349,20 @@
 
   .hero-visual {
     order: -1;
+  }
+
+  .hero-badge-mobile {
+    order: -2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-badge-extra {
+    display: none;
+  }
+
+  .hero-badge-desktop {
+    display: none;
   }
 
   .hero-title {
