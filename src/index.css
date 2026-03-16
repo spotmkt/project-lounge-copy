@@ -253,8 +253,34 @@
   font-size: 1.15rem;
   color: hsl(var(--muted-foreground));
   line-height: 1.8;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   max-width: 500px;
+}
+
+.hero-subtitle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+.hero-subtitle-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.05rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.hero-subtitle-item svg {
+  flex-shrink: 0;
+}
+
+.hero-pricing {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
 }
 
 .hero-features {
