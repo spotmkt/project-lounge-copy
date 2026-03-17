@@ -144,7 +144,7 @@ const Hero = () => {
                     key={i}
                     className={`hero-carousel-slide ${i === current ? 'active' : ''}`}
                   >
-                    <img src={slide.img} alt={slide.alt} className="hero-image" />
+                    <img src={slide.img} alt={slide.alt} className="hero-image" loading={i === 0 ? "eager" : "lazy"} fetchPriority={i === 0 ? "high" : "auto"} />
                     {slide.overlay && (
                       <div className="hero-carousel-overlay">{slide.overlay}</div>
                     )}
