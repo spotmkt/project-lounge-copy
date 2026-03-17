@@ -49,7 +49,7 @@ const About = () => {
           </div>
 
           <div className="about-visual">
-            <img src="/images/IMG_6401.jpg" alt="Studio P7 Criativo" className="about-image" />
+            <img src="/images/IMG_6401.jpg" alt="Studio P7 Criativo" className="about-image" loading="lazy" />
 
             <div className="concept-card">
               <div className="concept-header">

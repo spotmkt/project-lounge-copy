@@ -25,7 +25,7 @@ const ImageCarousel = () => {
         <div className="carousel-track" style={{ transform: `translateX(-${current * 100}%)` }}>
           {slides.map((slide, i) => (
             <div key={i} className={`carousel-slide ${i === current ? 'active' : ''}`}>
-              <img src={slide.img} alt={slide.alt} />
+              <img src={slide.img} alt={slide.alt} loading="lazy" />
               <div className="slide-overlay">
                 <div className="slide-content">
                   <span className="slide-category">{slide.category}</span>
