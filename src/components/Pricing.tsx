@@ -124,7 +124,7 @@ const Pricing = () => {
                     </div>
                   </div>
                   <div className="cta-section">
-                    <a href="https://wa.me/5531983363297" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-lg cta-button">
+                    <a href="#contato" className="btn btn-primary btn-lg cta-button">
                       <span>{plan.cta}</span>
                       <ArrowIcon />
                     </a>
