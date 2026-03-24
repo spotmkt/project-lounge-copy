@@ -3,7 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '', email: '', phone: '', project: '', message: ''
+    name: '', phone: '', project: ''
   });
   const [submitting, setSubmitting] = useState(false);
 
@@ -12,7 +12,7 @@ const Contact = () => {
     setSubmitting(true);
 
     try {
-      await (supabase as any).from('leads').insert({
+      await supabase.from('leads').insert({
         nome: formData.name,
         telefone: formData.phone,
         interesse: formData.project,
@@ -21,8 +21,8 @@ const Contact = () => {
       console.error('Erro ao salvar lead:', err);
     }
 
-    const text = `Olá! Meu nome é ${formData.name}. Email: ${formData.email}. Tel: ${formData.phone}. Projeto: ${formData.project}. ${formData.message}`;
-    window.open(`https://wa.me/5531983363297?text=${encodeURIComponent(text)}`, '_blank');
+    const text = `Olá! Meu nome é ${formData.name}. Tel: ${formData.phone}. Projeto: ${formData.project}.`;
+    window.open(`https://wa.me/5531996569799?text=${encodeURIComponent(text)}`, '_blank');
     setSubmitting(false);
   };
 
@@ -99,33 +99,22 @@ const Contact = () => {
                     <input type="text" id="name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="email">E-mail</label>
-                    <input type="email" id="email" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} />
-                  </div>
-                </div>
-
-                <div className="form-row">
-                  <div className="form-group">
                     <label htmlFor="phone">Telefone/WhatsApp</label>
                     <input type="tel" id="phone" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="project">Tipo de Projeto</label>
-                    <select id="project" required value={formData.project} onChange={(e) => setFormData({...formData, project: e.target.value})}>
-                      <option value="">Selecione uma opção</option>
-                      <option value="podcast">Podcast</option>
-                      <option value="videocast">Videocast</option>
-                      <option value="curso">Curso Online</option>
-                      <option value="entrevista">Entrevistas</option>
-                      <option value="corporativo">Conteúdo Corporativo</option>
-                      <option value="outro">Outro</option>
-                    </select>
                   </div>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="message">Conte-nos sobre seu projeto</label>
-                  <textarea id="message" rows={4} placeholder="Descreva brevemente sua ideia, objetivos e expectativas..." value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} />
+                  <label htmlFor="project">Tipo de Projeto</label>
+                  <select id="project" required value={formData.project} onChange={(e) => setFormData({...formData, project: e.target.value})}>
+                    <option value="">Selecione uma opção</option>
+                    <option value="podcast">Podcast</option>
+                    <option value="videocast">Videocast</option>
+                    <option value="curso">Curso Online</option>
+                    <option value="entrevista">Entrevistas</option>
+                    <option value="corporativo">Conteúdo Corporativo</option>
+                    <option value="outro">Outro</option>
+                  </select>
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-lg submit-button">
