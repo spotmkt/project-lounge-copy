@@ -41,7 +41,7 @@ const Header = () => {
         <a href="#sobre" onClick={() => setMobileOpen(false)}>Sobre</a>
         <a href="#servicos" onClick={() => setMobileOpen(false)}>Serviços</a>
         <a href="#planos" onClick={() => setMobileOpen(false)}>Planos</a>
-        <a href="#contato" onClick={() => setMobileOpen(false)}>Falar Conosco</a>
+        <a href="#contato" onClick={() => setMobileOpen(false)}>Contato</a>
       </div>
     </>
   );
