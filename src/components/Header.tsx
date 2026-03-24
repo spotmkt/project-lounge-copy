@@ -19,7 +19,7 @@ const Header = () => {
               <li><a href="#sobre">Sobre</a></li>
               <li><a href="#servicos">Serviços</a></li>
               <li><a href="#planos">Planos</a></li>
-              <li><a href="#contato" className="nav-cta">Falar Conosco</a></li>
+              <li><a href="#contato" className="nav-cta">Contato</a></li>
             </ul>
           </nav>
           <button className="mobile-menu-btn" onClick={() => setMobileOpen(!mobileOpen)}>
