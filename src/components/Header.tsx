@@ -19,7 +19,7 @@ const Header = () => {
               <li><a href="#sobre">Sobre</a></li>
               <li><a href="#servicos">Serviços</a></li>
               <li><a href="#planos">Planos</a></li>
-              <li><a href="#contato" className="nav-cta">Falar Conosco</a></li>
+              <li><a href="#contato" className="nav-cta">Contato</a></li>
             </ul>
           </nav>
           <button className="mobile-menu-btn" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -41,7 +41,7 @@ const Header = () => {
         <a href="#sobre" onClick={() => setMobileOpen(false)}>Sobre</a>
         <a href="#servicos" onClick={() => setMobileOpen(false)}>Serviços</a>
         <a href="#planos" onClick={() => setMobileOpen(false)}>Planos</a>
-        <a href="#contato" onClick={() => setMobileOpen(false)}>Falar Conosco</a>
+        <a href="#contato" onClick={() => setMobileOpen(false)}>Contato</a>
       </div>
     </>
   );
