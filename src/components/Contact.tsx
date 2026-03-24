@@ -21,6 +21,9 @@ const Contact = () => {
       console.error('Erro ao salvar lead:', err);
     }
 
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push({ event: 'LEAD' });
+
     const text = `Olá! Meu nome é ${formData.name}. Tel: ${formData.phone}. Projeto: ${formData.project}.`;
     window.open(`https://wa.me/5531996569799?text=${encodeURIComponent(text)}`, '_blank');
     setSubmitting(false);
