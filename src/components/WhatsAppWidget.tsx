@@ -8,6 +8,8 @@ const WhatsAppWidget = () => {
   });
 
   const handleSubmit = async () => {
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.project) return;
+
     try {
       await supabase.from('leads').insert({
         nome: formData.name,

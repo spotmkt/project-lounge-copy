@@ -9,6 +9,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.project) return;
     setSubmitting(true);
 
     try {
