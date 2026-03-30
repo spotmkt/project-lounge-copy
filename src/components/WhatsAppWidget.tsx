@@ -3,12 +3,17 @@ import { supabase } from '@/integrations/supabase/client';
 
 const WhatsAppWidget = () => {
   const [open, setOpen] = useState(false);
+  const [error, setError] = useState('');
   const [formData, setFormData] = useState({
     name: '', phone: '', project: ''
   });
 
   const handleSubmit = async () => {
-    if (!formData.name.trim() || !formData.phone.trim() || !formData.project) return;
+    if (!formData.name.trim() || !formData.phone.trim() || !formData.project) {
+      setError('Por favor, preencha todos os campos antes de enviar.');
+      return;
+    }
+    setError('');
 
     try {
       await supabase.from('leads').insert({
