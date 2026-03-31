@@ -15,15 +15,14 @@ const WhatsAppWidget = () => {
     }
     setError('');
 
-    try {
-      await supabase.from('leads').insert({
-        nome: formData.name,
-        telefone: formData.phone,
-        interesse: formData.project,
-      });
-    } catch (err) {
-      console.error('Erro ao salvar lead:', err);
-    }
+    // Save to Supabase (non-blocking)
+    supabase.from('leads').insert({
+      nome: formData.name,
+      telefone: formData.phone,
+      interesse: formData.project,
+    }).then(({ error: err }) => {
+      if (err) console.error('Erro ao salvar lead:', err);
+    });
 
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push({ event: 'LEAD' });
