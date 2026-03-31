@@ -8,7 +8,7 @@ const WhatsAppWidget = () => {
     name: '', phone: '', project: ''
   });
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (!formData.name.trim() || !formData.phone.trim() || !formData.project) {
       setError('Por favor, preencha todos os campos antes de enviar.');
       return;
