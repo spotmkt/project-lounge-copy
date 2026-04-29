@@ -64,6 +64,8 @@ const Hero = () => {
             </div>
           </div>
 
+          <p className="hero-pricing hero-pricing-mobile gradient-text">Gravação + Edição à partir de R$485</p>
+
           <div className="hero-text">
             <div className="hero-badge hero-badge-desktop">
               <span className="badge-icon">
