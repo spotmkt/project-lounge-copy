@@ -167,9 +167,10 @@
 }
 
 .logo-subtitle {
-  font-size: 0.7rem;
-  color: hsl(var(--muted-foreground));
-  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: hsl(var(--accent));
+  letter-spacing: 0.03em;
 }
 
 .nav-links {
