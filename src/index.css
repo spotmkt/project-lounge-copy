@@ -1376,6 +1376,7 @@
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
     gap: 0.35rem;
+    white-space: nowrap;
   }
 
   .hero-text .hero-pricing {
