@@ -288,6 +288,10 @@
   margin-bottom: 2rem;
 }
 
+.hero-pricing-mobile {
+  display: none;
+}
+
 .hero-features {
   margin-bottom: 2.5rem;
 }
