@@ -1354,13 +1354,28 @@
 
   .hero-visual {
     order: -1;
+    position: relative;
   }
 
   .hero-badge-mobile {
-    order: -2;
     display: flex;
     justify-content: center;
-    margin-bottom: 0.5rem;
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .hero-badge-mobile .hero-badge {
+    padding: 0.3rem 0.75rem;
+    font-size: 0.7rem;
+    margin-bottom: 0;
+    background: hsl(var(--background) / 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    gap: 0.35rem;
   }
 
   .hero-text .hero-pricing {
