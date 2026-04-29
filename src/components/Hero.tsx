@@ -55,15 +55,6 @@ const Hero = () => {
     <section className="hero">
       <div className="container">
         <div className="hero-content">
-          <div className="hero-badge-mobile">
-            <div className="hero-badge">
-              <span className="badge-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L13.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="currentColor" /></svg>
-              </span>
-              <span className="hero-badge-text">Promoção de Inauguração<span className="hero-badge-extra"> - Vagas Limitadas!</span></span>
-            </div>
-          </div>
-
           <p className="hero-pricing hero-pricing-mobile gradient-text">Gravação + Edição à partir de R$485</p>
 
           <div className="hero-text">
@@ -139,6 +130,14 @@ const Hero = () => {
           </div>
 
           <div className="hero-visual">
+            <div className="hero-badge-mobile">
+              <div className="hero-badge">
+                <span className="badge-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L13.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="currentColor" /></svg>
+                </span>
+                <span className="hero-badge-text">Promoção de Inauguração<span className="hero-badge-extra"> - Vagas Limitadas!</span></span>
+              </div>
+            </div>
             <div className="hero-image-container">
               <div className="hero-carousel-track">
                 {heroSlides.map((slide, i) =>
