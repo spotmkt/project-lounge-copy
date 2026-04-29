@@ -1363,6 +1363,22 @@
     margin-bottom: 0.5rem;
   }
 
+  .hero-text .hero-pricing {
+    display: none;
+  }
+
+  .hero-pricing-mobile {
+    display: block;
+    order: 0;
+    margin: 0.5rem 0 0.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 1;
+  }
+
   .hero-badge-extra {
     display: none;
   }
