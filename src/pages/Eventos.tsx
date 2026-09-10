@@ -75,8 +75,8 @@ const Eventos = () => {
       observacao,
     });
 
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ event: 'LEAD' });
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push({ event: 'LEAD' });
 
     setSent(true);
     setForm(initialForm);
