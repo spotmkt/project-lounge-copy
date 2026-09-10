@@ -7,6 +7,8 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import CrmLeads from "./pages/CrmLeads.tsx";
 import CrmDashboard from "./pages/CrmDashboard.tsx";
+import Coworking from "./pages/Coworking.tsx";
+import Eventos from "./pages/Eventos.tsx";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +22,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/crm" element={<CrmLeads />} />
           <Route path="/crm/dashboard" element={<CrmDashboard />} />
+          <Route path="/coworking" element={<Coworking />} />
+          <Route path="/eventos" element={<Eventos />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
