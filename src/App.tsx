@@ -7,6 +7,8 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import CrmLeads from "./pages/CrmLeads.tsx";
 import CrmDashboard from "./pages/CrmDashboard.tsx";
+import Coworking from "./pages/Coworking.tsx";
+import Eventos from "./pages/Eventos.tsx";
 
 const queryClient = new QueryClient();
 
