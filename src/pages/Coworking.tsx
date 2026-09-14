@@ -7,34 +7,50 @@ const WHATSAPP =
 const plans = [
   {
     name: 'Diária',
-    sub: 'Flexibilidade Total',
+    sub: 'Utilização diária avulsa',
     price: 'R$65',
-    period: 'Diária avulsa',
+    period: 'por dia',
     items: ['Sem compromisso', 'Acesso imediato', 'Estrutura completa'],
     featured: false,
   },
   {
-    name: 'Virtual',
-    sub: 'Endereço Fiscal',
-    price: 'R$122',
+    name: 'Residente',
+    sub: '1 dia por semana',
+    price: 'R$292',
     period: 'por mês · Plano Anual',
-    items: ['Acesso virtual P7', '1 visita mensal', 'Endereço fiscal no Centro de BH'],
+    items: ['Contrato anual', 'Estações compartilhadas', 'Acesso às áreas comuns'],
+    featured: true,
+  },
+  {
+    name: 'Residente',
+    sub: '5 dias por semana',
+    price: 'R$622',
+    period: 'por mês · Plano Trimestral',
+    items: ['Contrato trimestral', 'Acesso todos os dias úteis', 'Estações compartilhadas'],
     featured: false,
   },
   {
     name: 'Residente',
-    sub: '1x por Semana',
-    price: 'R$292',
-    period: 'por mês · Trimestral (3 meses)',
-    items: ['Economia garantida', 'Estações compartilhadas', 'Acesso às áreas comuns'],
-    featured: true,
+    sub: '5 dias por semana',
+    price: 'R$599',
+    period: 'por mês · Plano Semestral',
+    items: ['Contrato semestral', 'Acesso todos os dias úteis', 'Estações compartilhadas'],
+    featured: false,
   },
   {
-    name: 'Residente Pro',
-    sub: '5x por Semana',
-    price: 'R$622',
-    period: 'por Residente · Plano Anual',
-    items: ['Vaga reservada', 'Acesso todos os dias úteis', 'Salas de reunião inclusas'],
+    name: 'Residente',
+    sub: '5 dias por semana',
+    price: 'R$577',
+    period: 'por mês · Plano Anual',
+    items: ['Contrato anual', 'Acesso todos os dias úteis', 'Estações compartilhadas'],
+    featured: false,
+  },
+  {
+    name: 'Residente Virtual',
+    sub: 'Endereço Fiscal',
+    price: 'R$122',
+    period: 'por mês · Plano Anual',
+    items: ['Acesso virtual às ações do P7', 'Utilização presencial do coworking uma vez por mês', 'Endereço fiscal no Centro de BH'],
     featured: false,
   },
 ];
@@ -115,7 +131,7 @@ const Coworking = () => {
           </p>
           <div className="p7-plans">
             {plans.map((p) => (
-              <div className={`p7-plan ${p.featured ? 'p7-plan-featured' : ''}`} key={p.name}>
+              <div className={`p7-plan ${p.featured ? 'p7-plan-featured' : ''}`} key={`${p.name}-${p.period}`}>
                 {p.featured && <span className="p7-plan-tag">MAIS POPULAR</span>}
                 <h3>{p.name}</h3>
                 <p className="p7-plan-sub">{p.sub}</p>
@@ -131,6 +147,11 @@ const Coworking = () => {
                 </a>
               </div>
             ))}
+          </div>
+          <div className="p7-plan-notes">
+            <strong>Condições especiais:</strong> de 6 a 10 estações, 5% de desconto na mensalidade. De 11 a 15
+            estações, 8% de desconto na mensalidade. Acima de 16 estações (inclusive), 10% de desconto na
+            mensalidade. Limite de até 30 estações de trabalho por empresa.
           </div>
         </div>
       </section>

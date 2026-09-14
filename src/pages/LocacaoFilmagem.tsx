@@ -72,6 +72,13 @@ const LocacaoFilmagem = () => {
               </tbody>
             </table>
           </div>
+          <div className="p7-plan-notes p7-plan-notes-wide">
+            <strong>Observações:</strong>
+            <ul>
+              <li>Os valores de locação para filmagens/ensaios são fixos independente do espaço escolhido.</li>
+              <li>As reservas serão realizadas mediante consulta das disponibilidades dos espaços na agenda do P7 Criativo.</li>
+            </ul>
+          </div>
           <div className="p7-center">
             <p className="p7-closing">
               Transforme seu projeto em uma <strong>experiência visual inesquecível.</strong>
