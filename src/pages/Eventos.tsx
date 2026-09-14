@@ -77,6 +77,9 @@ const Eventos = () => {
 
     setSent(true);
     setForm(initialForm);
+    requestAnimationFrame(() => {
+      document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   };
 
   return (
