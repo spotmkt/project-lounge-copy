@@ -8,10 +8,10 @@ export const P7Topbar = () => (
   </div>
 );
 
-/** Define título, descrição e canonical apontando para o domínio mkt.p7criativo.com.br */
+/** Define título, descrição e canonical apontando para o domínio lp.p7criativo.com.br */
 export const useP7Seo = (path: string, title: string, description: string) => {
   useEffect(() => {
-    const url = `https://mkt.p7criativo.com.br${path}`;
+    const url = `https://lp.p7criativo.com.br${path}`;
     document.title = title;
 
     const setMeta = (selector: string, attr: string, key: string, value: string) => {
