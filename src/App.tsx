@@ -17,10 +17,6 @@ const LocacaoFilmagem = lazy(() => import("./pages/LocacaoFilmagem.tsx"));
 
 const queryClient = new QueryClient();
 
-// No domínio lp.p7criativo.com.br a home é a página de Eventos.
-const isLpDomain =
-  typeof window !== 'undefined' && window.location.hostname.startsWith('lp.');
-
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -30,7 +26,7 @@ const App = () => (
         <Suspense fallback={null}>
           <GtmLoader />
           <Routes>
-            <Route path="/" element={isLpDomain ? <Eventos /> : <Index />} />
+            <Route path="/" element={<Index />} />
             <Route path="/crm" element={<CrmLeads />} />
             <Route path="/crm/dashboard" element={<CrmDashboard />} />
             <Route path="/coworking" element={<Coworking />} />
