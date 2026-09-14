@@ -64,7 +64,7 @@ const WhatsAppWidget = () => {
               </label>
               <label>
                 Telefone/WhatsApp:
-                <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} placeholder="(31) 99999-9999" required />
+                <input type="tel" inputMode="tel" maxLength={15} value={formData.phone} onChange={(e) => setFormData({...formData, phone: formatPhone(e.target.value)})} placeholder="(31) 99999-9999" required />
               </label>
               <label>
                 Tipo de Projeto:
