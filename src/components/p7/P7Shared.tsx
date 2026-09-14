@@ -133,19 +133,39 @@ export const P7Testimonials = ({ ctaHref = '#contato' }: { ctaHref?: string }) =
 
 export const P7Footer = () => (
   <footer className="p7-footer">
-    <div className="p7-container p7-footer-inner">
-      <div>
-        R. Rio de Janeiro, 471 -<br />
-        Centro, Belo Horizonte - MG,<br />
-        30160-040
+    <div className="p7-container p7-footer-main">
+      <div className="p7-footer-map">
+        <iframe
+          title="Localização do P7 Criativo"
+          src="https://www.google.com/maps?q=P7%20Criativo%2C%20Rua%20Rio%20de%20Janeiro%20471%2C%20Belo%20Horizonte&output=embed"
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </div>
-      <div>
-        Telefone: <a href="tel:+553196905648">(31) 9 9690-5648</a><br />
-        E-mail: <a href="mailto:contato@p7criativo.com.br">contato@p7criativo.com.br</a>
+      <div className="p7-footer-contact">
+        <img src="/p7-logo.png" alt="P7 Criativo" width={90} height={71} className="p7-footer-logo" />
+        <address>
+          R. Rio de Janeiro, 471 -<br />
+          Centro, Belo Horizonte - MG,<br />
+          30160-040
+        </address>
+        <p>
+          Telefone: <a href="tel:+553196905648">(31) 9 9690-5648</a><br />
+          E-mail: <a href="mailto:contato@p7criativo.com.br">contato@p7criativo.com.br</a>
+        </p>
+        <div className="p7-footer-rule" />
+        <div className="p7-socials" aria-label="Redes sociais do P7 Criativo">
+          <a href="https://www.instagram.com/p7criativo/" target="_blank" rel="noopener noreferrer" aria-label="Instagram do P7 Criativo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" className="p7-social-fill" /></svg>
+          </a>
+          <a href="https://wa.me/553196905648" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp do P7 Criativo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7a8.5 8.5 0 1 1 16.2-4.1Z" /><path d="M8.2 7.7c.2-.5.4-.5.8-.5h.3c.2 0 .4 0 .5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5 1 1.2 1.8 2.1 2.4.8.5 1.5.8 1.8.9.2.1.4 0 .6-.2l.8-1c.2-.3.4-.3.7-.2l1.8.9c.3.2.5.3.5.5 0 .2-.1 1.2-.6 1.7-.5.6-1.2.9-2 .9-.5 0-1.2-.1-2.6-.7-1.6-.7-2.8-1.7-3.8-2.8-1-1.1-1.8-2.4-2.2-3.5-.4-1.1 0-2 .4-2.5Z" /></svg>
+          </a>
+        </div>
       </div>
-      <div>
-        <strong>Copyright © P7 Criativo</strong> | Todos os direitos reservados
-      </div>
+    </div>
+    <div className="p7-footer-bottom">
+      <div className="p7-container"><strong>Copyright © P7 Criativo</strong> | Todos os direitos reservados</div>
     </div>
   </footer>
 );
