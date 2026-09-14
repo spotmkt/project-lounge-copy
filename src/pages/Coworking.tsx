@@ -1,4 +1,4 @@
-import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
+import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo, p7TrackConversion } from '../components/p7/P7Shared';
 import { P7Image } from '../components/p7/P7Image';
 import { P7Video } from '../components/p7/P7Video';
 import '../styles/p7-pages.css';
@@ -92,7 +92,7 @@ const Coworking = () => {
 
       <P7Benefits />
 
-      <P7Testimonials ctaHref={WHATSAPP} />
+      <P7Testimonials ctaHref={WHATSAPP} ctaOnClick={p7TrackConversion} />
 
       <section className="p7-section">
         <div className="p7-container">
@@ -147,7 +147,7 @@ const Coworking = () => {
                     <li key={i}>{i}</li>
                   ))}
                 </ul>
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="p7-btn">
+                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="p7-btn" onClick={p7TrackConversion}>
                   Entrar em contato
                 </a>
               </div>
