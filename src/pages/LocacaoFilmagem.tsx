@@ -1,4 +1,4 @@
-import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo, p7TrackConversion } from '../components/p7/P7Shared';
+import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import { P7Image } from '../components/p7/P7Image';
 import { P7Video } from '../components/p7/P7Video';
 import '../styles/p7-pages.css';
@@ -46,7 +46,7 @@ const LocacaoFilmagem = () => {
 
       <P7Benefits />
 
-      <P7Testimonials ctaHref={WHATSAPP} ctaOnClick={p7TrackConversion} />
+      <P7Testimonials ctaHref={WHATSAPP} />
 
       <section className="p7-section p7-section-alt" id="valores">
         <div className="p7-container">
@@ -89,7 +89,7 @@ const LocacaoFilmagem = () => {
             <p className="p7-closing">
               Transforme seu projeto em uma <strong>experiência visual inesquecível.</strong>
             </p>
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="p7-btn" onClick={p7TrackConversion}>
+            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="p7-btn">
               Entrar em contato
             </a>
           </div>
