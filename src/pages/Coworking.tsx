@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { P7Topbar, P7Benefits, P7Testimonials, P7Footer } from '../components/p7/P7Shared';
+import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import '../styles/p7-pages.css';
 
 const WHATSAPP =
@@ -41,16 +40,11 @@ const plans = [
 ];
 
 const Coworking = () => {
-  useEffect(() => {
-    document.title = 'Coworking no Centro de BH | P7 Criativo';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      desc.setAttribute(
-        'content',
-        'Coworking no P7 Criativo, na Praça Sete em Belo Horizonte: estações de trabalho, salas de reunião, suporte de TI e planos a partir de R$65.'
-      );
-    }
-  }, []);
+  useP7Seo(
+    '/coworking',
+    'Coworking no Centro de BH | P7 Criativo',
+    'Coworking no P7 Criativo, na Praça Sete em Belo Horizonte: estações de trabalho, salas de reunião, suporte de TI e planos a partir de R$65.'
+  );
 
   return (
     <div className="p7">

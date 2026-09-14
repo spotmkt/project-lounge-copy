@@ -9,8 +9,14 @@ import CrmLeads from "./pages/CrmLeads.tsx";
 import CrmDashboard from "./pages/CrmDashboard.tsx";
 import Coworking from "./pages/Coworking.tsx";
 import Eventos from "./pages/Eventos.tsx";
+import SalaDeReuniao from "./pages/SalaDeReuniao.tsx";
+import LocacaoFilmagem from "./pages/LocacaoFilmagem.tsx";
 
 const queryClient = new QueryClient();
+
+// No domínio mkt.p7criativo.com.br a home é a página de Eventos.
+const isMktDomain =
+  typeof window !== 'undefined' && window.location.hostname.startsWith('mkt.');
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -19,11 +25,13 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={isMktDomain ? <Eventos /> : <Index />} />
           <Route path="/crm" element={<CrmLeads />} />
           <Route path="/crm/dashboard" element={<CrmDashboard />} />
           <Route path="/coworking" element={<Coworking />} />
           <Route path="/eventos" element={<Eventos />} />
+          <Route path="/saladereuniao" element={<SalaDeReuniao />} />
+          <Route path="/locacao-filmagem" element={<LocacaoFilmagem />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,8 +1,44 @@
+import { useEffect } from 'react';
+
 export const P7Topbar = () => (
   <div className="p7-topbar">
-    <a href="/" className="p7-logo" aria-label="P7 Criativo">P<span>7</span></a>
+    <a href="/" className="p7-logo" aria-label="P7 Criativo">
+      <img src="/p7-logo.png" alt="P7 Criativo" width={64} height={50} />
+    </a>
   </div>
 );
+
+/** Define título, descrição e canonical apontando para o domínio mkt.p7criativo.com.br */
+export const useP7Seo = (path: string, title: string, description: string) => {
+  useEffect(() => {
+    const url = `https://mkt.p7criativo.com.br${path}`;
+    document.title = title;
+
+    const setMeta = (selector: string, attr: string, key: string, value: string) => {
+      let el = document.head.querySelector<HTMLMetaElement>(selector);
+      if (!el) {
+        el = document.createElement('meta');
+        el.setAttribute(attr, key);
+        document.head.appendChild(el);
+      }
+      el.setAttribute('content', value);
+    };
+
+    setMeta('meta[name="description"]', 'name', 'description', description);
+    setMeta('meta[property="og:title"]', 'property', 'og:title', title);
+    setMeta('meta[property="og:description"]', 'property', 'og:description', description);
+    setMeta('meta[property="og:url"]', 'property', 'og:url', url);
+    setMeta('meta[property="og:type"]', 'property', 'og:type', 'website');
+
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = url;
+  }, [path, title, description]);
+};
 
 const benefits = [
   {

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { P7Topbar, P7Benefits, P7Testimonials, P7Footer } from '../components/p7/P7Shared';
+import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import '../styles/p7-pages.css';
 
 const espacos = ['Auditório', '3° Andar', '23° Andar', 'Não tenho certeza'];
@@ -29,16 +29,11 @@ const Eventos = () => {
   const [error, setError] = useState('');
   const [sent, setSent] = useState(false);
 
-  useEffect(() => {
-    document.title = 'Eventos no P7 Criativo | Espaços no Centro de BH';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      desc.setAttribute(
-        'content',
-        'Realize seu evento no P7 Criativo, prédio icônico na Praça Sete em BH: auditório, salas modulares e suporte completo para palestras, workshops e treinamentos.'
-      );
-    }
-  }, []);
+  useP7Seo(
+    '/',
+    'Eventos no P7 Criativo | Espaços no Centro de BH',
+    'Realize seu evento no P7 Criativo, prédio icônico na Praça Sete em BH: auditório, salas modulares e suporte completo para palestras, workshops e treinamentos.'
+  );
 
   const set = (k: keyof typeof initialForm) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
