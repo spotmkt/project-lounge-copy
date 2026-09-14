@@ -96,12 +96,6 @@ export const P7Benefits = () => (
   </section>
 );
 
-export const p7TrackConversion = () => {
-  const w = window as any;
-  w.dataLayer = w.dataLayer || [];
-  w.dataLayer.push({ event: 'LEAD' });
-  w.dataLayer.push({ event: 'gtm.formSubmit' });
-};
 
 export const P7Testimonials = ({ ctaHref = '#contato', ctaOnClick }: { ctaHref?: string; ctaOnClick?: () => void }) => (
   <section className="p7-section p7-section-alt">
@@ -167,7 +161,7 @@ export const P7Footer = () => (
           <a href="https://www.instagram.com/p7criativo/" target="_blank" rel="noopener noreferrer" aria-label="Instagram do P7 Criativo">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" className="p7-social-fill" /></svg>
           </a>
-          <a href="https://wa.me/553196905648" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp do P7 Criativo" onClick={p7TrackConversion}>
+          <a href="https://wa.me/553196905648" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp do P7 Criativo">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7a8.5 8.5 0 1 1 16.2-4.1Z" /><path d="M8.2 7.7c.2-.5.4-.5.8-.5h.3c.2 0 .4 0 .5.4l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4-.1.6.5 1 1.2 1.8 2.1 2.4.8.5 1.5.8 1.8.9.2.1.4 0 .6-.2l.8-1c.2-.3.4-.3.7-.2l1.8.9c.3.2.5.3.5.5 0 .2-.1 1.2-.6 1.7-.5.6-1.2.9-2 .9-.5 0-1.2-.1-2.6-.7-1.6-.7-2.8-1.7-3.8-2.8-1-1.1-1.8-2.4-2.2-3.5-.4-1.1 0-2 .4-2.5Z" /></svg>
           </a>
         </div>
