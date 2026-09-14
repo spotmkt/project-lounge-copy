@@ -17,9 +17,9 @@ const LocacaoFilmagem = lazy(() => import("./pages/LocacaoFilmagem.tsx"));
 
 const queryClient = new QueryClient();
 
-// No domínio mkt.p7criativo.com.br a home é a página de Eventos.
-const isMktDomain =
-  typeof window !== 'undefined' && window.location.hostname.startsWith('mkt.');
+// No domínio lp.p7criativo.com.br a home é a página de Eventos.
+const isLpDomain =
+  typeof window !== 'undefined' && window.location.hostname.startsWith('lp.');
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -30,7 +30,7 @@ const App = () => (
         <Suspense fallback={null}>
           <GtmLoader />
           <Routes>
-            <Route path="/" element={isMktDomain ? <Eventos /> : <Index />} />
+            <Route path="/" element={isLpDomain ? <Eventos /> : <Index />} />
             <Route path="/crm" element={<CrmLeads />} />
             <Route path="/crm/dashboard" element={<CrmDashboard />} />
             <Route path="/coworking" element={<Coworking />} />
