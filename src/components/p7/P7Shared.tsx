@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
-import p7Logo from '@/assets/p7-logo.png.asset.json';
 
 export const P7Topbar = () => (
   <div className="p7-topbar">
     <a href="/" className="p7-logo" aria-label="P7 Criativo">
-      <img src={p7Logo.url} alt="P7 Criativo" width={64} height={50} />
+      <img src="/p7-logo.png" alt="P7 Criativo" width={64} height={50} />
     </a>
   </div>
 );
