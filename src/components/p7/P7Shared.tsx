@@ -96,12 +96,6 @@ export const P7Benefits = () => (
   </section>
 );
 
-export const p7TrackConversion = () => {
-  const w = window as any;
-  w.dataLayer = w.dataLayer || [];
-  w.dataLayer.push({ event: 'LEAD' });
-  w.dataLayer.push({ event: 'gtm.formSubmit' });
-};
 
 export const P7Testimonials = ({ ctaHref = '#contato', ctaOnClick }: { ctaHref?: string; ctaOnClick?: () => void }) => (
   <section className="p7-section p7-section-alt">
