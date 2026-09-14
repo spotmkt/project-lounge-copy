@@ -30,13 +30,33 @@
   justify-content: center;
   align-items: center;
 }
-.p7-logo {
-  font-size: 1.6rem;
-  font-weight: 800;
-  letter-spacing: -2px;
-  color: var(--p7-pink);
+.p7-logo { display: inline-flex; align-items: center; line-height: 0; }
+.p7-logo img { height: 42px; width: auto; display: block; }
+
+/* Tabela de valores */
+.p7-table-wrap { max-width: 680px; margin: 0 auto; overflow-x: auto; }
+.p7-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid #e6e8ee;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(20, 30, 60, 0.05);
 }
-.p7-logo span { color: var(--p7-orange); }
+.p7-table caption {
+  caption-side: top;
+  background: var(--p7-blue);
+  color: #fff;
+  font-weight: 800;
+  padding: 0.9rem 1rem;
+}
+.p7-table th, .p7-table td { padding: 0.9rem 1.25rem; text-align: left; font-size: 0.98rem; }
+.p7-table thead th { background: #f6f7f9; font-weight: 800; }
+.p7-table tbody tr + tr td { border-top: 1px solid #eceef3; }
+.p7-table td:last-child { font-weight: 800; color: var(--p7-blue); }
+.p7-closing { text-align: center; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-weight: 700; margin: 0 0 1.75rem; }
+.p7-closing strong { color: var(--p7-pink); }
 
 /* Hero */
 .p7-hero {
