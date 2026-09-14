@@ -1,33 +1,42 @@
 import { useState, type FormEvent } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { formatPhone, isValidPhone } from '@/lib/validation';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '', phone: '', project: ''
   });
-  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!formData.name.trim() || !formData.phone.trim() || !formData.project) return;
-    setSubmitting(true);
-
-    try {
-      await supabase.from('leads').insert({
-        nome: formData.name,
-        telefone: formData.phone,
-        interesse: formData.project,
-      });
-    } catch (err) {
-      console.error('Erro ao salvar lead:', err);
+    if (formData.name.trim().length < 3) {
+      setError('Informe seu nome completo.');
+      return;
     }
+    if (!isValidPhone(formData.phone)) {
+      setError('Informe um telefone válido com DDD. Ex.: (31) 99999-9999');
+      return;
+    }
+    if (!formData.project) {
+      setError('Selecione o tipo de projeto.');
+      return;
+    }
+    setError('');
+
+    supabase.from('leads').insert({
+      nome: formData.name,
+      telefone: formData.phone,
+      interesse: formData.project,
+    }).then(({ error: err }) => {
+      if (err) console.error('Erro ao salvar lead:', err);
+    });
 
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push({ event: 'LEAD' });
 
     const text = `Olá! Meu nome é ${formData.name}. Tel: ${formData.phone}. Projeto: ${formData.project}.`;
     window.open(`https://wa.me/5531996569799?text=${encodeURIComponent(text)}`, '_blank');
-    setSubmitting(false);
   };
 
   return (
@@ -104,7 +113,7 @@ const Contact = () => {
                   </div>
                   <div className="form-group">
                     <label htmlFor="phone">Telefone/WhatsApp</label>
-                    <input type="tel" id="phone" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
+                    <input type="tel" inputMode="tel" id="phone" required placeholder="(31) 99999-9999" maxLength={15} value={formData.phone} onChange={(e) => setFormData({...formData, phone: formatPhone(e.target.value)})} />
                   </div>
                 </div>
 
@@ -120,6 +129,8 @@ const Contact = () => {
                     <option value="outro">Outro</option>
                   </select>
                 </div>
+
+                {error && <p style={{ color: '#e53e3e', fontSize: '0.85rem', margin: '0 0 8px' }}>{error}</p>}
 
                 <button type="submit" className="btn btn-primary btn-lg submit-button">
                   <span>Fale conosco</span>

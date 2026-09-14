@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
+import { formatPhone, isValidPhone } from '@/lib/validation';
 
 const WhatsAppWidget = () => {
   const [open, setOpen] = useState(false);
@@ -9,8 +10,16 @@ const WhatsAppWidget = () => {
   });
 
   const handleSubmit = () => {
-    if (!formData.name.trim() || !formData.phone.trim() || !formData.project) {
-      setError('Por favor, preencha todos os campos antes de enviar.');
+    if (formData.name.trim().length < 3) {
+      setError('Informe seu nome completo.');
+      return;
+    }
+    if (!isValidPhone(formData.phone)) {
+      setError('Informe um telefone válido com DDD. Ex.: (31) 99999-9999');
+      return;
+    }
+    if (!formData.project) {
+      setError('Selecione o tipo de projeto.');
       return;
     }
     setError('');
@@ -55,7 +64,7 @@ const WhatsAppWidget = () => {
               </label>
               <label>
                 Telefone/WhatsApp:
-                <input type="tel" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} placeholder="(31) 99999-9999" required />
+                <input type="tel" inputMode="tel" maxLength={15} value={formData.phone} onChange={(e) => setFormData({...formData, phone: formatPhone(e.target.value)})} placeholder="(31) 99999-9999" required />
               </label>
               <label>
                 Tipo de Projeto:

@@ -3,6 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import { P7Image } from '../components/p7/P7Image';
 import { P7Video } from '../components/p7/P7Video';
+import { formatPhone, onlyDigits, isValidPhone, isValidEmail, isValidNumber, isValidFutureDate, todayISO } from '@/lib/validation';
 import '../styles/p7-pages.css';
 
 const espacos = ['Auditório', '3° Andar', '23° Andar', 'Não tenho certeza'];
@@ -26,8 +27,11 @@ const initialForm = {
   espaco: '', periodo: '', dias: '', formato: '', objetivo: '', publico: '', segmento: '',
 };
 
+type FormKey = keyof typeof initialForm;
+
 const Eventos = () => {
   const [form, setForm] = useState(initialForm);
+  const [errors, setErrors] = useState<Partial<Record<FormKey, string>>>({});
   const [error, setError] = useState('');
   const [sent, setSent] = useState(false);
 
@@ -37,16 +41,38 @@ const Eventos = () => {
     'Realize seu evento no P7 Criativo, prédio icônico na Praça Sete em BH: auditório, salas modulares e suporte completo para palestras, workshops e treinamentos.'
   );
 
-  const set = (k: keyof typeof initialForm) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
-    setForm((f) => ({ ...f, [k]: e.target.value }));
+  const set = (k: FormKey) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    let value = e.target.value;
+    if (k === 'telefone') value = formatPhone(value);
+    if (k === 'dias' || k === 'publico') value = onlyDigits(value).slice(0, 6);
+    setForm((f) => ({ ...f, [k]: value }));
+    setErrors((prev) => (prev[k] ? { ...prev, [k]: undefined } : prev));
+  };
+
+  const validate = () => {
+    const next: Partial<Record<FormKey, string>> = {};
+    if (form.nome.trim().length < 3) next.nome = 'Informe seu nome completo.';
+    if (!isValidPhone(form.telefone)) next.telefone = 'Informe um WhatsApp válido com DDD. Ex.: (31) 99999-9999';
+    if (!isValidEmail(form.email)) next.email = 'Informe um e-mail válido. Ex.: nome@empresa.com.br';
+    if (form.empresa.trim().length < 2) next.empresa = 'Informe o nome da empresa.';
+    if (form.evento.trim().length < 2) next.evento = 'Informe o nome do evento.';
+    if (!isValidFutureDate(form.data)) next.data = 'Escolha uma data válida, a partir de hoje.';
+    if (!form.espaco) next.espaco = 'Selecione um espaço.';
+    if (!form.periodo) next.periodo = 'Selecione um período.';
+    if (!isValidNumber(form.dias, 1, 365)) next.dias = 'Informe o número de dias (1 a 365).';
+    if (!form.formato) next.formato = 'Selecione o formato do evento.';
+    if (!isValidNumber(form.publico, 1, 100000)) next.publico = 'Informe a expectativa de público, apenas números.';
+    return next;
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const required: (keyof typeof initialForm)[] = [
-      'nome', 'telefone', 'email', 'empresa', 'evento', 'data', 'espaco', 'periodo', 'dias', 'formato', 'publico',
-    ];
-    if (required.some((k) => !form[k].trim())) {
-      setError('Por favor, preencha todos os campos obrigatórios antes de enviar.');
+    const next = validate();
+    setErrors(next);
+    if (Object.keys(next).length > 0) {
+      setError('Revise os campos destacados antes de enviar.');
+      const first = document.querySelector('.p7-field-invalid input, .p7-field-invalid select') as HTMLElement | null;
+      first?.focus();
       return;
     }
     setError('');
@@ -77,10 +103,14 @@ const Eventos = () => {
 
     setSent(true);
     setForm(initialForm);
+    setErrors({});
     requestAnimationFrame(() => {
       document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   };
+
+  const fieldClass = (k: FormKey, extra = '') => `p7-field${extra ? ' ' + extra : ''}${errors[k] ? ' p7-field-invalid' : ''}`;
+  const FieldError = ({ k }: { k: FormKey }) => (errors[k] ? <span className="p7-field-msg">{errors[k]}</span> : null);
 
   return (
     <div className="p7">
@@ -170,58 +200,69 @@ const Eventos = () => {
             ) : (
               <form onSubmit={handleSubmit} noValidate>
                 <div className="p7-form-grid">
-                  <div className="p7-field">
+                  <div className={fieldClass('nome')}>
                     <label htmlFor="nome"><i>*</i> Seu Nome</label>
-                    <input id="nome" value={form.nome} onChange={set('nome')} />
+                    <input id="nome" autoComplete="name" value={form.nome} onChange={set('nome')} aria-invalid={!!errors.nome} />
+                    <FieldError k="nome" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('telefone')}>
                     <label htmlFor="telefone"><i>*</i> Coloque um número de Whatsapp</label>
-                    <input id="telefone" value={form.telefone} onChange={set('telefone')} />
+                    <input id="telefone" type="tel" inputMode="tel" autoComplete="tel" placeholder="(31) 99999-9999" maxLength={15} value={form.telefone} onChange={set('telefone')} aria-invalid={!!errors.telefone} />
+                    <FieldError k="telefone" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('email')}>
                     <label htmlFor="email"><i>*</i> Seu E-mail</label>
-                    <input id="email" type="email" value={form.email} onChange={set('email')} />
+                    <input id="email" type="email" inputMode="email" autoComplete="email" placeholder="nome@empresa.com.br" value={form.email} onChange={set('email')} aria-invalid={!!errors.email} />
+                    <FieldError k="email" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('empresa')}>
                     <label htmlFor="empresa"><i>*</i> Nome da empresa organizadora do evento</label>
-                    <input id="empresa" value={form.empresa} onChange={set('empresa')} />
+                    <input id="empresa" value={form.empresa} onChange={set('empresa')} aria-invalid={!!errors.empresa} />
+                    <FieldError k="empresa" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('evento')}>
                     <label htmlFor="evento"><i>*</i> Nome do evento</label>
-                    <input id="evento" value={form.evento} onChange={set('evento')} />
+                    <input id="evento" value={form.evento} onChange={set('evento')} aria-invalid={!!errors.evento} />
+                    <FieldError k="evento" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('data')}>
                     <label htmlFor="data"><i>*</i> Data Prevista</label>
-                    <input id="data" type="date" value={form.data} onChange={set('data')} />
+                    <input id="data" type="date" min={todayISO()} value={form.data} onChange={set('data')} aria-invalid={!!errors.data} />
+                    <FieldError k="data" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('espaco')}>
                     <label htmlFor="espaco"><i>*</i> Qual espaço do P7 você gostaria?</label>
-                    <select id="espaco" value={form.espaco} onChange={set('espaco')}>
+                    <select id="espaco" value={form.espaco} onChange={set('espaco')} aria-invalid={!!errors.espaco}>
                       <option value="">Selecione</option>
                       {espacos.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
+                    <FieldError k="espaco" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('periodo')}>
                     <label htmlFor="periodo"><i>*</i> Período da reserva</label>
-                    <select id="periodo" value={form.periodo} onChange={set('periodo')}>
+                    <select id="periodo" value={form.periodo} onChange={set('periodo')} aria-invalid={!!errors.periodo}>
                       <option value="">Selecione</option>
                       {periodos.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
+                    <FieldError k="periodo" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('dias')}>
                     <label htmlFor="dias"><i>*</i> Quantos dias terá o evento?</label>
-                    <input id="dias" inputMode="numeric" value={form.dias} onChange={set('dias')} />
+                    <input id="dias" inputMode="numeric" placeholder="Apenas números" value={form.dias} onChange={set('dias')} aria-invalid={!!errors.dias} />
+                    <FieldError k="dias" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('formato')}>
                     <label htmlFor="formato"><i>*</i> Qual será o formato do seu evento?</label>
-                    <select id="formato" value={form.formato} onChange={set('formato')}>
+                    <select id="formato" value={form.formato} onChange={set('formato')} aria-invalid={!!errors.formato}>
                       <option value="">Selecione</option>
                       {formatos.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
+                    <FieldError k="formato" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('publico')}>
                     <label htmlFor="publico"><i>*</i> Expectativa de público</label>
-                    <input id="publico" inputMode="numeric" placeholder="Apenas números" value={form.publico} onChange={set('publico')} />
+                    <input id="publico" inputMode="numeric" placeholder="Apenas números" value={form.publico} onChange={set('publico')} aria-invalid={!!errors.publico} />
+                    <FieldError k="publico" />
                   </div>
                   <div className="p7-field">
                     <label htmlFor="segmento">Segmento do evento</label>

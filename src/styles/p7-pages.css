@@ -290,6 +290,8 @@
 .p7-field textarea { resize: vertical; min-height: 96px; }
 .p7-form-error { color: var(--p7-pink); font-size: 0.9rem; margin-top: 1rem; text-align: center; }
 .p7-form-actions { margin-top: 1.75rem; text-align: center; }
+.p7-field-msg { display: block; margin-top: 0.35rem; font-size: 0.82rem; color: var(--p7-pink); }
+.p7-field-invalid input, .p7-field-invalid select, .p7-field-invalid textarea { border-color: var(--p7-pink); box-shadow: 0 0 0 2px rgba(233, 65, 111, 0.12); }
 
 .p7-form-success { text-align: center; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
 .p7-form-success h3 { margin: 0; font-size: 1.4rem; color: #17223b; }
