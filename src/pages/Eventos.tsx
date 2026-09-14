@@ -29,16 +29,11 @@ const Eventos = () => {
   const [error, setError] = useState('');
   const [sent, setSent] = useState(false);
 
-  useEffect(() => {
-    document.title = 'Eventos no P7 Criativo | Espaços no Centro de BH';
-    const desc = document.querySelector('meta[name="description"]');
-    if (desc) {
-      desc.setAttribute(
-        'content',
-        'Realize seu evento no P7 Criativo, prédio icônico na Praça Sete em BH: auditório, salas modulares e suporte completo para palestras, workshops e treinamentos.'
-      );
-    }
-  }, []);
+  useP7Seo(
+    '/',
+    'Eventos no P7 Criativo | Espaços no Centro de BH',
+    'Realize seu evento no P7 Criativo, prédio icônico na Praça Sete em BH: auditório, salas modulares e suporte completo para palestras, workshops e treinamentos.'
+  );
 
   const set = (k: keyof typeof initialForm) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
