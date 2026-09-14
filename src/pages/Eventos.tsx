@@ -163,7 +163,7 @@ const Eventos = () => {
                 </svg>
                 <h3>Enviado com sucesso!</h3>
                 <p>Recebemos seus dados! Nossa equipe entrará em contato em breve.</p>
-                <button type="button" className="p7-btn" onClick={() => setSent(false)}>
+                <button type="button" className="p7-btn p7-btn-solid" onClick={() => setSent(false)}>
                   Enviar outra solicitação
                 </button>
               </div>
