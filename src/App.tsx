@@ -9,6 +9,8 @@ import CrmLeads from "./pages/CrmLeads.tsx";
 import CrmDashboard from "./pages/CrmDashboard.tsx";
 import Coworking from "./pages/Coworking.tsx";
 import Eventos from "./pages/Eventos.tsx";
+import SalaDeReuniao from "./pages/SalaDeReuniao.tsx";
+import LocacaoFilmagem from "./pages/LocacaoFilmagem.tsx";
 
 const queryClient = new QueryClient();
 
