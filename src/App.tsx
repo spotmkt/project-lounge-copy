@@ -26,6 +26,8 @@ const App = () => (
           <Route path="/crm/dashboard" element={<CrmDashboard />} />
           <Route path="/coworking" element={<Coworking />} />
           <Route path="/eventos" element={<Eventos />} />
+          <Route path="/saladereuniao" element={<SalaDeReuniao />} />
+          <Route path="/locacao-filmagem" element={<LocacaoFilmagem />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

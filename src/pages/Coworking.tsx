@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { P7Topbar, P7Benefits, P7Testimonials, P7Footer } from '../components/p7/P7Shared';
+import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import '../styles/p7-pages.css';
 
 const WHATSAPP =
