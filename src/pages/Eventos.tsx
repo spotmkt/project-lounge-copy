@@ -199,58 +199,69 @@ const Eventos = () => {
             ) : (
               <form onSubmit={handleSubmit} noValidate>
                 <div className="p7-form-grid">
-                  <div className="p7-field">
+                  <div className={fieldClass('nome')}>
                     <label htmlFor="nome"><i>*</i> Seu Nome</label>
-                    <input id="nome" value={form.nome} onChange={set('nome')} />
+                    <input id="nome" autoComplete="name" value={form.nome} onChange={set('nome')} aria-invalid={!!errors.nome} />
+                    <FieldError k="nome" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('telefone')}>
                     <label htmlFor="telefone"><i>*</i> Coloque um número de Whatsapp</label>
-                    <input id="telefone" value={form.telefone} onChange={set('telefone')} />
+                    <input id="telefone" type="tel" inputMode="tel" autoComplete="tel" placeholder="(31) 99999-9999" maxLength={15} value={form.telefone} onChange={set('telefone')} aria-invalid={!!errors.telefone} />
+                    <FieldError k="telefone" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('email')}>
                     <label htmlFor="email"><i>*</i> Seu E-mail</label>
-                    <input id="email" type="email" value={form.email} onChange={set('email')} />
+                    <input id="email" type="email" inputMode="email" autoComplete="email" placeholder="nome@empresa.com.br" value={form.email} onChange={set('email')} aria-invalid={!!errors.email} />
+                    <FieldError k="email" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('empresa')}>
                     <label htmlFor="empresa"><i>*</i> Nome da empresa organizadora do evento</label>
-                    <input id="empresa" value={form.empresa} onChange={set('empresa')} />
+                    <input id="empresa" value={form.empresa} onChange={set('empresa')} aria-invalid={!!errors.empresa} />
+                    <FieldError k="empresa" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('evento')}>
                     <label htmlFor="evento"><i>*</i> Nome do evento</label>
-                    <input id="evento" value={form.evento} onChange={set('evento')} />
+                    <input id="evento" value={form.evento} onChange={set('evento')} aria-invalid={!!errors.evento} />
+                    <FieldError k="evento" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('data')}>
                     <label htmlFor="data"><i>*</i> Data Prevista</label>
-                    <input id="data" type="date" value={form.data} onChange={set('data')} />
+                    <input id="data" type="date" min={todayISO()} value={form.data} onChange={set('data')} aria-invalid={!!errors.data} />
+                    <FieldError k="data" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('espaco')}>
                     <label htmlFor="espaco"><i>*</i> Qual espaço do P7 você gostaria?</label>
-                    <select id="espaco" value={form.espaco} onChange={set('espaco')}>
+                    <select id="espaco" value={form.espaco} onChange={set('espaco')} aria-invalid={!!errors.espaco}>
                       <option value="">Selecione</option>
                       {espacos.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
+                    <FieldError k="espaco" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('periodo')}>
                     <label htmlFor="periodo"><i>*</i> Período da reserva</label>
-                    <select id="periodo" value={form.periodo} onChange={set('periodo')}>
+                    <select id="periodo" value={form.periodo} onChange={set('periodo')} aria-invalid={!!errors.periodo}>
                       <option value="">Selecione</option>
                       {periodos.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
+                    <FieldError k="periodo" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('dias')}>
                     <label htmlFor="dias"><i>*</i> Quantos dias terá o evento?</label>
-                    <input id="dias" inputMode="numeric" value={form.dias} onChange={set('dias')} />
+                    <input id="dias" inputMode="numeric" placeholder="Apenas números" value={form.dias} onChange={set('dias')} aria-invalid={!!errors.dias} />
+                    <FieldError k="dias" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('formato')}>
                     <label htmlFor="formato"><i>*</i> Qual será o formato do seu evento?</label>
-                    <select id="formato" value={form.formato} onChange={set('formato')}>
+                    <select id="formato" value={form.formato} onChange={set('formato')} aria-invalid={!!errors.formato}>
                       <option value="">Selecione</option>
                       {formatos.map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
+                    <FieldError k="formato" />
                   </div>
-                  <div className="p7-field">
+                  <div className={fieldClass('publico')}>
                     <label htmlFor="publico"><i>*</i> Expectativa de público</label>
-                    <input id="publico" inputMode="numeric" placeholder="Apenas números" value={form.publico} onChange={set('publico')} />
+                    <input id="publico" inputMode="numeric" placeholder="Apenas números" value={form.publico} onChange={set('publico')} aria-invalid={!!errors.publico} />
+                    <FieldError k="publico" />
                   </div>
                   <div className="p7-field">
                     <label htmlFor="segmento">Segmento do evento</label>
