@@ -198,7 +198,7 @@
 .p7-space-body p { margin: 0; font-size: 0.92rem; color: #5b6072; line-height: 1.55; }
 
 /* Planos */
-.p7-plans { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; align-items: stretch; }
+.p7-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
 .p7-plan {
   position: relative;
   background: #fff;
@@ -232,6 +232,20 @@
 .p7-plan .p7-btn { margin-top: auto; width: 100%; border-color: var(--p7-blue); color: var(--p7-blue); }
 .p7-plan .p7-btn:hover { background: var(--p7-blue); color: #fff; }
 .p7-plan-featured .p7-btn { background: var(--p7-orange); border-color: var(--p7-orange); color: #17223b; font-weight: 700; }
+.p7-plan-notes {
+  max-width: 940px;
+  margin: 1.75rem auto 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--p7-cyan);
+  background: #fff;
+  color: #444a5e;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.p7-plan-notes strong { color: var(--p7-ink); }
+.p7-plan-notes-wide { max-width: 720px; }
+.p7-plan-notes ul { margin: 0.5rem 0 0; padding-left: 1.25rem; }
+.p7-plan-notes li + li { margin-top: 0.35rem; }
 
 /* Formulário */
 .p7-form-section { background: linear-gradient(120deg, var(--p7-blue), var(--p7-cyan)); color: #fff; }

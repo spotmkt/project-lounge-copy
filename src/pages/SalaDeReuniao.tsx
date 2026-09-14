@@ -10,9 +10,9 @@ const salas = [
     sub: '(4º andar)',
     lugares: '4 Lugares',
     precos: [
-      ['Hora Avulsa', 'R$60,00'],
-      ['2 Horas', 'R$100,00'],
-      ['4 Horas', 'R$180,00'],
+      ['Hora Avulsa', 'R$65,00'],
+      ['2 Horas', 'R$105,00'],
+      ['4 Horas', 'R$190,00'],
     ],
     featured: false,
   },
@@ -21,9 +21,9 @@ const salas = [
     sub: '(18º andar)',
     lugares: '6 Lugares',
     precos: [
-      ['Hora Avulsa', 'R$70,00'],
-      ['2 Horas', 'R$120,00'],
-      ['4 Horas', 'R$230,00'],
+      ['Hora Avulsa', 'R$75,00'],
+      ['2 Horas', 'R$126,00'],
+      ['4 Horas', 'R$240,00'],
     ],
     featured: true,
   },
@@ -32,20 +32,20 @@ const salas = [
     sub: '(4º, 23º e 24º andar)',
     lugares: '8 Lugares',
     precos: [
-      ['Hora Avulsa', 'R$80,00'],
-      ['2 Horas', 'R$140,00'],
-      ['4 Horas', 'R$250,00'],
+      ['Hora Avulsa', 'R$85,00'],
+      ['2 Horas', 'R$146,00'],
+      ['4 Horas', 'R$260,00'],
     ],
     featured: false,
   },
   {
     name: 'Sala de Reunião',
     sub: '(24º andar)',
-    lugares: '12 Lugares',
+    lugares: '10 Lugares',
     precos: [
-      ['Hora Avulsa', 'R$120,00'],
-      ['2 Horas', 'R$220,00'],
-      ['4 Horas', 'R$300,00'],
+      ['Hora Avulsa', 'R$125,00'],
+      ['2 Horas', 'R$230,00'],
+      ['4 Horas', 'R$315,00'],
     ],
     featured: false,
   },
@@ -55,7 +55,7 @@ const SalaDeReuniao = () => {
   useP7Seo(
     '/saladereuniao',
     'Salas de Reunião no Centro de BH | P7 Criativo',
-    'Salas de reunião no P7 Criativo, na Praça Sete em Belo Horizonte: tecnologia, privacidade e suporte de TI incluso. Valores por hora a partir de R$60.'
+    'Salas de reunião no P7 Criativo, na Praça Sete em Belo Horizonte: tecnologia, privacidade e suporte de TI incluso. Valores por hora a partir de R$65.'
   );
 
   return (
@@ -118,6 +118,9 @@ const SalaDeReuniao = () => {
                 </a>
               </div>
             ))}
+          </div>
+          <div className="p7-plan-notes">
+            <strong>Observação:</strong> consulte a taxa de fornecimento de kit café e água.
           </div>
         </div>
       </section>
