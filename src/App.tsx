@@ -28,6 +28,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Suspense fallback={null}>
+          <GtmLoader />
           <Routes>
             <Route path="/" element={isMktDomain ? <Eventos /> : <Index />} />
             <Route path="/crm" element={<CrmLeads />} />
