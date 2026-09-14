@@ -1,4 +1,5 @@
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
+import { P7Image } from '../components/p7/P7Image';
 import '../styles/p7-pages.css';
 
 const WHATSAPP =
@@ -84,7 +85,7 @@ const Coworking = () => {
 
       <div className="p7-container">
         <div className="p7-media">
-          <img src="/images/lounge.jpg" alt="Ambiente de coworking do P7 Criativo" loading="lazy" />
+          <P7Image image="lounge" alt="Ambiente de coworking do P7 Criativo" fetchPriority="high" />
         </div>
       </div>
 
@@ -98,21 +99,21 @@ const Coworking = () => {
           <div className="p7-title-rule" />
           <div className="p7-spaces">
             <div className="p7-space">
-              <img src="/images/IMG_6401.jpg" alt="Estações de trabalho do coworking" loading="lazy" />
+              <P7Image image="estacoes" alt="Estações de trabalho do coworking" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
               <div className="p7-space-body">
                 <h3>Estações de Trabalho</h3>
                 <p>Conforto, funcionalidade e design que estimula a produtividade.</p>
               </div>
             </div>
             <div className="p7-space">
-              <img src="/images/transmissao_ao_vivo.jpg" alt="Salas de reunião do coworking" loading="lazy" />
+              <P7Image image="transmissao" alt="Salas de reunião do coworking" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
               <div className="p7-space-body">
                 <h3>Salas de reunião</h3>
                 <p>Perfeitas para videoconferências, apresentações e muito mais.</p>
               </div>
             </div>
             <div className="p7-space">
-              <img src="/images/IMG_6394.jpg" alt="P7 Day - café da manhã e networking" loading="lazy" />
+              <P7Image image="networking" alt="P7 Day - café da manhã e networking" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
               <div className="p7-space-body">
                 <h3>P7 Day</h3>
                 <p>Café da manhã e networking com a comunidade de inovação do P7.</p>

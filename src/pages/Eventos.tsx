@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
+import { P7Image } from '../components/p7/P7Image';
 import '../styles/p7-pages.css';
 
 const espacos = ['Auditório', '3° Andar', '23° Andar', 'Não tenho certeza'];
@@ -99,7 +100,7 @@ const Eventos = () => {
 
       <div className="p7-container">
         <div className="p7-media">
-          <img src="/images/edificio_externo.jpg" alt="Edifício P7 Criativo na Praça Sete" loading="lazy" />
+          <P7Image image="edificio" alt="Edifício P7 Criativo na Praça Sete" fetchPriority="high" />
         </div>
       </div>
 
@@ -117,21 +118,21 @@ const Eventos = () => {
           </p>
           <div className="p7-spaces">
             <div className="p7-space">
-              <img src="/images/transmissao_ao_vivo.jpg" alt="3º andar para eventos e exposições" loading="lazy" />
+              <P7Image image="transmissao" alt="3º andar para eventos e exposições" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
               <div className="p7-space-body">
                 <h3>3º Andar - Eventos e Exposições</h3>
                 <p>Amplo espaço para feiras, exposições e ativações de marca.</p>
               </div>
             </div>
             <div className="p7-space">
-              <img src="/images/IMG_6412.jpg" alt="23º andar com salas modulares" loading="lazy" />
+              <P7Image image="salas" alt="23º andar com salas modulares" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
               <div className="p7-space-body">
                 <h3>23º - Salas modulares</h3>
                 <p>Configurações flexíveis para treinamentos, cursos e reuniões.</p>
               </div>
             </div>
             <div className="p7-space">
-              <img src="/images/IMG_6405.jpg" alt="24º andar com auditório e foyer" loading="lazy" />
+              <P7Image image="auditorio" alt="24º andar com auditório e foyer" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
               <div className="p7-space-body">
                 <h3>24° Andar - Auditório e Foyer</h3>
                 <p>Auditório com vista panorâmica de BH e foyer para recepção.</p>
