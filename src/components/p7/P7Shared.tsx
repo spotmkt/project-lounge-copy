@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import mapPreview from '@/assets/p7/p7-map.webp.asset.json';
 
 export const P7Topbar = () => (
   <div className="p7-topbar">
@@ -142,7 +141,7 @@ export const P7Footer = () => (
         rel="noopener noreferrer"
         aria-label="Abrir localização do P7 Criativo no Google Maps"
       >
-        <img src={mapPreview.url} alt="Mapa da localização do P7 Criativo no Centro de Belo Horizonte" loading="lazy" width={691} height={361} />
+        <img src="/images/optimized/p7-map.webp" alt="Mapa da localização do P7 Criativo no Centro de Belo Horizonte" loading="lazy" width={691} height={361} />
         <span>Ver no Google Maps</span>
       </a>
       <div className="p7-footer-contact">
