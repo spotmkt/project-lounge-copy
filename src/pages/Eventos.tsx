@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import { P7Image } from '../components/p7/P7Image';
+import { P7Video } from '../components/p7/P7Video';
 import '../styles/p7-pages.css';
 
 const espacos = ['Auditório', '3° Andar', '23° Andar', 'Não tenho certeza'];
@@ -100,7 +101,7 @@ const Eventos = () => {
 
       <div className="p7-container">
         <div className="p7-media">
-          <P7Image image="edificio" alt="Edifício P7 Criativo na Praça Sete" fetchPriority="high" />
+          <P7Video videoId="9a70c87c-3e64-4af6-a7de-def4092fe495" title="Apresentação do P7 Criativo" />
         </div>
       </div>
 
@@ -116,6 +117,9 @@ const Eventos = () => {
             No P7, contamos com o espaço ideal para qualquer tipo de evento — palestras, seminários, workshops e muito
             mais. Oferecemos toda a estrutura necessária para que o seu evento seja um sucesso.
           </p>
+          <div className="p7-video-feature">
+            <P7Video videoId="9a4d5233-b7fd-464b-ba61-56cc53162505" title="Espaços para eventos do P7 Criativo" />
+          </div>
           <div className="p7-spaces">
             <div className="p7-space">
               <P7Image image="transmissao" alt="3º andar para eventos e exposições" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />

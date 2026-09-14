@@ -1,5 +1,6 @@
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import { P7Image } from '../components/p7/P7Image';
+import { P7Video } from '../components/p7/P7Video';
 import '../styles/p7-pages.css';
 
 const WHATSAPP =
@@ -85,7 +86,7 @@ const Coworking = () => {
 
       <div className="p7-container">
         <div className="p7-media">
-          <P7Image image="lounge" alt="Ambiente de coworking do P7 Criativo" fetchPriority="high" />
+          <P7Video videoId="9a70c87c-3e64-4af6-a7de-def4092fe495" title="Apresentação do P7 Criativo" />
         </div>
       </div>
 
@@ -97,6 +98,9 @@ const Coworking = () => {
         <div className="p7-container">
           <h2 className="p7-title">Conheça Nosso Espaço</h2>
           <div className="p7-title-rule" />
+          <div className="p7-video-feature">
+            <P7Video videoId="bf6d2e33-0821-4c3f-8eb1-75d9e45e9b26" title="Estações de trabalho do coworking P7 Criativo" />
+          </div>
           <div className="p7-spaces">
             <div className="p7-space">
               <P7Image image="estacoes" alt="Estações de trabalho do coworking" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
