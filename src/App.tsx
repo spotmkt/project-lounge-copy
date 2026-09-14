@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { GtmLoader } from "./components/GtmLoader";
 
 const Index = lazy(() => import("./pages/Index.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
@@ -27,6 +28,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Suspense fallback={null}>
+          <GtmLoader />
           <Routes>
             <Route path="/" element={isMktDomain ? <Eventos /> : <Index />} />
             <Route path="/crm" element={<CrmLeads />} />
