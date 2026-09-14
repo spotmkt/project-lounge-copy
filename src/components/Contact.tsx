@@ -113,7 +113,7 @@ const Contact = () => {
                   </div>
                   <div className="form-group">
                     <label htmlFor="phone">Telefone/WhatsApp</label>
-                    <input type="tel" id="phone" required value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} />
+                    <input type="tel" inputMode="tel" id="phone" required placeholder="(31) 99999-9999" maxLength={15} value={formData.phone} onChange={(e) => setFormData({...formData, phone: formatPhone(e.target.value)})} />
                   </div>
                 </div>
 
@@ -129,6 +129,8 @@ const Contact = () => {
                     <option value="outro">Outro</option>
                   </select>
                 </div>
+
+                {error && <p style={{ color: '#e53e3e', fontSize: '0.85rem', margin: '0 0 8px' }}>{error}</p>}
 
                 <button type="submit" className="btn btn-primary btn-lg submit-button">
                   <span>Fale conosco</span>
