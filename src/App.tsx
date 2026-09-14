@@ -14,6 +14,10 @@ import LocacaoFilmagem from "./pages/LocacaoFilmagem.tsx";
 
 const queryClient = new QueryClient();
 
+// No domínio mkt.p7criativo.com.br a home é a página de Eventos.
+const isMktDomain =
+  typeof window !== 'undefined' && window.location.hostname.startsWith('mkt.');
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -21,7 +25,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={isMktDomain ? <Eventos /> : <Index />} />
           <Route path="/crm" element={<CrmLeads />} />
           <Route path="/crm/dashboard" element={<CrmDashboard />} />
           <Route path="/coworking" element={<Coworking />} />
