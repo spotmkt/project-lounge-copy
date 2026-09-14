@@ -4,6 +4,7 @@ import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../com
 import { P7Image } from '../components/p7/P7Image';
 import { P7Video } from '../components/p7/P7Video';
 import { formatPhone, onlyDigits, isValidPhone, isValidEmail, isValidNumber, isValidFutureDate, todayISO } from '@/lib/validation';
+import { buildEventosWebhookPayload, sendEventosWebhook } from '@/lib/webhook';
 import '../styles/p7-pages.css';
 
 const espacos = ['Auditório', '3° Andar', '23° Andar', 'Não tenho certeza'];
