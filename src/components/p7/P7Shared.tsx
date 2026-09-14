@@ -134,14 +134,16 @@ export const P7Testimonials = ({ ctaHref = '#contato' }: { ctaHref?: string }) =
 export const P7Footer = () => (
   <footer className="p7-footer">
     <div className="p7-container p7-footer-main">
-      <div className="p7-footer-map">
-        <iframe
-          title="Localização do P7 Criativo"
-          src="https://www.google.com/maps?q=P7%20Criativo%2C%20Rua%20Rio%20de%20Janeiro%20471%2C%20Belo%20Horizonte&output=embed"
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </div>
+      <a
+        className="p7-footer-map"
+        href="https://www.google.com/maps/search/?api=1&query=P7%20Criativo%2C%20Rua%20Rio%20de%20Janeiro%20471%2C%20Belo%20Horizonte"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir localização do P7 Criativo no Google Maps"
+      >
+        <img src="/images/optimized/p7-map.webp" alt="Mapa da localização do P7 Criativo no Centro de Belo Horizonte" loading="lazy" width={691} height={361} />
+        <span>Ver no Google Maps</span>
+      </a>
       <div className="p7-footer-contact">
         <img src="/p7-logo.png" alt="P7 Criativo" width={90} height={71} className="p7-footer-logo" />
         <address>

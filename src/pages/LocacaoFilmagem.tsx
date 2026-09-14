@@ -1,4 +1,5 @@
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
+import { P7Image } from '../components/p7/P7Image';
 import '../styles/p7-pages.css';
 
 const WHATSAPP =
@@ -38,7 +39,7 @@ const LocacaoFilmagem = () => {
 
       <div className="p7-container">
         <div className="p7-media">
-          <img src="/images/chroma_key.jpg" alt="Espaço para filmagem no P7 Criativo" loading="lazy" />
+          <P7Image image="chroma" alt="Espaço para filmagem no P7 Criativo" fetchPriority="high" />
         </div>
       </div>
 
