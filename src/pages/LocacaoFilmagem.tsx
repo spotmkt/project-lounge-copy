@@ -1,5 +1,6 @@
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import { P7Image } from '../components/p7/P7Image';
+import { P7Video } from '../components/p7/P7Video';
 import '../styles/p7-pages.css';
 
 const WHATSAPP =
@@ -39,7 +40,7 @@ const LocacaoFilmagem = () => {
 
       <div className="p7-container">
         <div className="p7-media">
-          <P7Image image="chroma" alt="Espaço para filmagem no P7 Criativo" fetchPriority="high" />
+          <P7Video videoId="9a70c87c-3e64-4af6-a7de-def4092fe495" title="Apresentação do P7 Criativo" />
         </div>
       </div>
 
@@ -51,6 +52,10 @@ const LocacaoFilmagem = () => {
         <div className="p7-container">
           <h2 className="p7-title">Conheça Nosso Espaço</h2>
           <div className="p7-title-rule" />
+          <div className="p7-video-grid p7-video-grid-landscape">
+            <P7Video videoId="f9346973-2157-4d98-b8d7-148280b1353a" title="Espaço para filmagens do P7 Criativo" />
+            <P7Video videoId="51465c33-828d-4d9b-849c-c7743124a4a8" title="Ambiente para produções audiovisuais do P7 Criativo" />
+          </div>
           <p className="p7-subtitle">
             Escolha o plano ideal para você e aproveite a infraestrutura do P7 Criativo.
           </p>

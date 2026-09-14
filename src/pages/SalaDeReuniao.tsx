@@ -1,5 +1,6 @@
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import { P7Image } from '../components/p7/P7Image';
+import { P7Video } from '../components/p7/P7Video';
 import '../styles/p7-pages.css';
 
 const WHATSAPP =
@@ -84,13 +85,26 @@ const SalaDeReuniao = () => {
 
       <div className="p7-container">
         <div className="p7-media">
-          <P7Image image="transmissao" alt="Sala de reunião do P7 Criativo" fetchPriority="high" />
+          <P7Video videoId="9a70c87c-3e64-4af6-a7de-def4092fe495" title="Apresentação do P7 Criativo" />
         </div>
       </div>
 
       <P7Benefits />
 
       <P7Testimonials ctaHref={WHATSAPP} />
+
+      <section className="p7-section p7-section-alt">
+        <div className="p7-container">
+          <h2 className="p7-title">Salas de Reuniões</h2>
+          <div className="p7-title-rule" />
+          <div className="p7-video-grid">
+            <P7Video videoId="ea413141-4063-4399-b6d3-6cf2afa6a52f" title="Tour pela sala de reunião São Paulo" vertical />
+            <P7Video videoId="43c6f87b-a591-488f-afde-156c235242e7" title="Tour pela sala de reunião Tópis" vertical />
+            <P7Video videoId="6f2851be-0972-4bf5-8d01-98e2d02afc56" title="Tour por uma sala de reunião do P7 Criativo" vertical />
+            <P7Video videoId="2e96302e-cb62-451a-a135-81e535cb36da" title="Tour por outra sala de reunião do P7 Criativo" vertical />
+          </div>
+        </div>
+      </section>
 
       <section className="p7-section" id="planos">
         <div className="p7-container">
