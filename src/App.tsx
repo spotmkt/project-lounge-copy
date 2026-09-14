@@ -1,16 +1,18 @@
+import { lazy, Suspense } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
-import CrmLeads from "./pages/CrmLeads.tsx";
-import CrmDashboard from "./pages/CrmDashboard.tsx";
-import Coworking from "./pages/Coworking.tsx";
-import Eventos from "./pages/Eventos.tsx";
-import SalaDeReuniao from "./pages/SalaDeReuniao.tsx";
-import LocacaoFilmagem from "./pages/LocacaoFilmagem.tsx";
+
+const Index = lazy(() => import("./pages/Index.tsx"));
+const NotFound = lazy(() => import("./pages/NotFound.tsx"));
+const CrmLeads = lazy(() => import("./pages/CrmLeads.tsx"));
+const CrmDashboard = lazy(() => import("./pages/CrmDashboard.tsx"));
+const Coworking = lazy(() => import("./pages/Coworking.tsx"));
+const Eventos = lazy(() => import("./pages/Eventos.tsx"));
+const SalaDeReuniao = lazy(() => import("./pages/SalaDeReuniao.tsx"));
+const LocacaoFilmagem = lazy(() => import("./pages/LocacaoFilmagem.tsx"));
 
 const queryClient = new QueryClient();
 
@@ -24,17 +26,19 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={isMktDomain ? <Eventos /> : <Index />} />
-          <Route path="/crm" element={<CrmLeads />} />
-          <Route path="/crm/dashboard" element={<CrmDashboard />} />
-          <Route path="/coworking" element={<Coworking />} />
-          <Route path="/eventos" element={<Eventos />} />
-          <Route path="/saladereuniao" element={<SalaDeReuniao />} />
-          <Route path="/locacao-filmagem" element={<LocacaoFilmagem />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={isMktDomain ? <Eventos /> : <Index />} />
+            <Route path="/crm" element={<CrmLeads />} />
+            <Route path="/crm/dashboard" element={<CrmDashboard />} />
+            <Route path="/coworking" element={<Coworking />} />
+            <Route path="/eventos" element={<Eventos />} />
+            <Route path="/saladereuniao" element={<SalaDeReuniao />} />
+            <Route path="/locacao-filmagem" element={<LocacaoFilmagem />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
