@@ -92,6 +92,9 @@ const Eventos = () => {
       `Objetivo: ${form.objetivo || '-'}`,
     ].join(' | ');
 
+    const webhookPayload = buildEventosWebhookPayload(form);
+    sendEventosWebhook(webhookPayload);
+
     void supabase.from('leads').insert({
       nome: form.nome,
       telefone: form.telefone,
