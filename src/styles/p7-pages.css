@@ -284,16 +284,30 @@
 .p7-form-actions { margin-top: 1.75rem; text-align: center; }
 
 /* Footer */
-.p7-footer { background: var(--p7-navy); color: #fff; padding: 2.5rem 0; }
-.p7-footer-inner { display: flex; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; font-size: 0.9rem; line-height: 1.7; }
+.p7-footer { background: linear-gradient(115deg, var(--p7-cyan), var(--p7-blue)); color: #fff; }
+.p7-footer-main { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr); gap: 4rem; align-items: center; padding-top: 3rem; padding-bottom: 2.5rem; }
+.p7-footer-map { min-height: 360px; overflow: hidden; }
+.p7-footer-map iframe { display: block; width: 100%; height: 360px; border: 0; }
+.p7-footer-contact { text-align: center; font-size: 1rem; line-height: 1.55; }
+.p7-footer-logo { display: block; width: 90px; height: auto; margin: 0 auto 2rem; }
+.p7-footer-contact address { margin: 0 0 1.75rem; font-style: normal; }
+.p7-footer-contact p { margin: 0; }
+.p7-footer-rule { height: 1px; margin: 1.5rem 0; background: rgba(255, 255, 255, 0.35); }
+.p7-socials { display: flex; justify-content: center; align-items: center; gap: 2rem; }
+.p7-socials a { display: inline-flex; width: 38px; height: 38px; align-items: center; justify-content: center; color: var(--p7-orange); }
+.p7-socials svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.p7-socials .p7-social-fill { fill: currentColor; stroke: none; }
+.p7-footer-bottom { padding: 0.85rem 0; text-align: center; background: rgba(0, 55, 140, 0.28); font-size: 0.9rem; }
 .p7-footer a { color: #fff; text-decoration: none; }
 .p7-footer a:hover { text-decoration: underline; }
+.p7-socials a:hover { color: var(--p7-pink); text-decoration: none; }
 
 @media (max-width: 980px) {
   .p7-benefits { grid-template-columns: repeat(2, 1fr); }
   .p7-spaces { grid-template-columns: 1fr; }
   .p7-plans { grid-template-columns: repeat(2, 1fr); }
   .p7-testimonials { grid-template-columns: 1fr; }
+  .p7-footer-main { gap: 2rem; }
 }
 
 @media (max-width: 640px) {
@@ -305,4 +319,7 @@
   .p7-form-grid { grid-template-columns: 1fr; }
   .p7-form-card { padding: 1.5rem; }
   .p7-media { margin-top: -1.5rem; }
+  .p7-footer-main { grid-template-columns: 1fr; padding-top: 2rem; padding-bottom: 2rem; }
+  .p7-footer-map, .p7-footer-map iframe { min-height: 300px; height: 300px; }
+  .p7-footer-logo { margin-bottom: 1.25rem; }
 }
