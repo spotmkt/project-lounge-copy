@@ -291,6 +291,11 @@
 .p7-form-error { color: var(--p7-pink); font-size: 0.9rem; margin-top: 1rem; text-align: center; }
 .p7-form-actions { margin-top: 1.75rem; text-align: center; }
 
+.p7-form-success { text-align: center; padding: 2rem 1rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.p7-form-success h3 { margin: 0; font-size: 1.4rem; color: #17223b; }
+.p7-form-success p { margin: 0; font-size: 1.05rem; color: #4a5568; }
+.p7-form-success .p7-btn { margin-top: 0.75rem; }
+
 /* Footer */
 .p7-footer { background: linear-gradient(115deg, var(--p7-cyan), var(--p7-blue)); color: #fff; }
 .p7-footer-main { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.9fr); gap: 4rem; align-items: center; padding-top: 3rem; padding-bottom: 2.5rem; }

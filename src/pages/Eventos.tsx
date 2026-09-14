@@ -77,6 +77,9 @@ const Eventos = () => {
 
     setSent(true);
     setForm(initialForm);
+    requestAnimationFrame(() => {
+      document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   };
 
   return (
@@ -153,9 +156,17 @@ const Eventos = () => {
             <div className="p7-title-rule" />
 
             {sent ? (
-              <p style={{ textAlign: 'center', fontSize: '1.05rem' }}>
-                Recebemos seus dados! Nossa equipe entrará em contato em breve.
-              </p>
+              <div className="p7-form-success" role="status">
+                <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="#25d366" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M8 12.5l2.6 2.6L16 9.5" />
+                </svg>
+                <h3>Enviado com sucesso!</h3>
+                <p>Recebemos seus dados! Nossa equipe entrará em contato em breve.</p>
+                <button type="button" className="p7-btn p7-btn-solid" onClick={() => setSent(false)}>
+                  Enviar outra solicitação
+                </button>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} noValidate>
                 <div className="p7-form-grid">
