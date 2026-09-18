@@ -204,15 +204,13 @@ const Eventos = () => {
             O P7 Criativo, localização central, acessível, com estrutura moderna e suporte completo para eventos de
             todos os tipos.
           </p>
+          <div className="p7-media p7-media-hero">
+            <P7Video videoId="9a70c87c-3e64-4af6-a7de-def4092fe495" title="Apresentação do P7 Criativo" />
+          </div>
           <a href="#contato" className="p7-btn">Entrar em contato</a>
         </div>
       </section>
 
-      <div className="p7-container">
-        <div className="p7-media">
-          <P7Video videoId="9a70c87c-3e64-4af6-a7de-def4092fe495" title="Apresentação do P7 Criativo" />
-        </div>
-      </div>
 
       <P7Benefits />
 

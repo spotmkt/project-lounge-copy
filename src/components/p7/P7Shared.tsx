@@ -81,7 +81,8 @@ const benefits = [
 ];
 
 export const P7Benefits = () => (
-  <section className="p7-section">
+  <section className="p7-section p7-section-compact">
+
     <div className="p7-container">
       <h2 className="p7-title">Benefícios</h2>
       <div className="p7-title-rule" />
@@ -100,7 +101,8 @@ export const P7Benefits = () => (
 
 
 export const P7Testimonials = ({ ctaHref = '#contato', ctaOnClick }: { ctaHref?: string; ctaOnClick?: () => void }) => (
-  <section className="p7-section p7-section-alt">
+  <section className="p7-section p7-section-alt p7-section-compact">
+
     <div className="p7-container">
       <h2 className="p7-title">Depoimentos</h2>
       <div className="p7-title-rule" />
