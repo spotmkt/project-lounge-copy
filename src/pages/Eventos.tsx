@@ -69,7 +69,7 @@ const EventGalleryCarousel = ({ images, label }: { images: GalleryImage[]; label
           />
         ))}
       </div>
-      <div className="p7-event-carousel-thumbs">
+      <div className={`p7-event-carousel-thumbs p7-event-carousel-thumbs-${images.length}`}>
         {images.map((image, index) => (
           <button
             key={image.src}
