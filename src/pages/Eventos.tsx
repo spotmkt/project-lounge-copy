@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
 import { P7Video } from '../components/p7/P7Video';
@@ -39,6 +39,68 @@ const initialForm = {
 };
 
 type FormKey = keyof typeof initialForm;
+
+type GalleryImage = {
+  src: string;
+  alt: string;
+};
+
+const EventGalleryCarousel = ({ images, label }: { images: GalleryImage[]; label: string }) => {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActive((current) => (current + 1) % images.length);
+    }, 2000);
+    return () => window.clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div className="p7-event-carousel" aria-label={label}>
+      <div className="p7-event-carousel-stage">
+        {images.map((image, index) => (
+          <img
+            key={image.src}
+            className={index === active ? 'is-active' : ''}
+            src={image.src}
+            alt={image.alt}
+            loading="lazy"
+            aria-hidden={index !== active}
+          />
+        ))}
+      </div>
+      <div className="p7-event-carousel-thumbs">
+        {images.map((image, index) => (
+          <button
+            key={image.src}
+            type="button"
+            className={index === active ? 'is-active' : ''}
+            onClick={() => setActive(index)}
+            aria-label={`Exibir imagem ${index + 1} de ${images.length}`}
+            aria-current={index === active ? 'true' : undefined}
+          >
+            <img src={image.src} alt="" loading="lazy" />
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const terceiroAndarImages: GalleryImage[] = [
+  { src: terceiroPrincipal.url, alt: 'Salão amplo do 3º andar para eventos e exposições' },
+  { src: terceiroDetalheUm.url, alt: 'Vista lateral do salão do 3º andar' },
+  { src: terceiroDetalheDois.url, alt: 'Espaço aberto do 3º andar' },
+  { src: terceiroDetalheTres.url, alt: 'Outra vista do 3º andar' },
+];
+
+const auditorioImages: GalleryImage[] = [
+  { src: auditorioUm.url, alt: 'Auditório do 24º andar' },
+  { src: auditorioDois.url, alt: 'Foyer panorâmico do 24º andar' },
+  { src: auditorioTres.url, alt: 'Vista interna do auditório' },
+  { src: auditorioQuatro.url, alt: 'Área de convivência do 24º andar' },
+  { src: auditorioCinco.url, alt: 'Vista panorâmica do foyer' },
+];
 
 const Eventos = () => {
   const [form, setForm] = useState(initialForm);
@@ -167,38 +229,21 @@ const Eventos = () => {
           <div className="p7-event-galleries">
             <section className="p7-event-floor">
               <h3 className="p7-event-floor-title p7-event-floor-title-cyan">3º Andar - Eventos e Exposições</h3>
-              <img className="p7-event-main-image" src={terceiroPrincipal.url} alt="Salão amplo do 3º andar para eventos e exposições" loading="lazy" />
-              <div className="p7-event-thumbs p7-event-thumbs-three">
-                <img src={terceiroDetalheUm.url} alt="Vista lateral do salão do 3º andar" loading="lazy" />
-                <img src={terceiroDetalheDois.url} alt="Espaço aberto do 3º andar" loading="lazy" />
-                <img src={terceiroDetalheTres.url} alt="Outra vista do 3º andar" loading="lazy" />
-              </div>
+              <EventGalleryCarousel images={terceiroAndarImages} label="Galeria do 3º andar" />
             </section>
 
             <section className="p7-event-floor">
               <h3 className="p7-event-floor-title p7-event-floor-title-pink">23º - Salas modulares</h3>
               <div className="p7-event-modular-grid">
                 <P7Video videoId="9a4d5233-b7fd-464b-ba61-56cc53162505" title="Salas modulares do 23º andar" vertical />
-                <div className="p7-event-modular-images">
-                  <img src={modularUm.url} alt="Sala modular preparada para treinamento" loading="lazy" />
-                  <img src={modularDois.url} alt="Evento nas salas modulares do 23º andar" loading="lazy" />
-                </div>
+                <img className="p7-event-modular-story" src={modularDois.url} alt="Sala modular preparada para treinamento" loading="lazy" />
               </div>
+              <img className="p7-event-modular-wide" src={modularUm.url} alt="Evento nas salas modulares do 23º andar" loading="lazy" />
             </section>
 
             <section className="p7-event-floor">
               <h3 className="p7-event-floor-title p7-event-floor-title-orange">24° Andar - Auditório e Foyer</h3>
-              <div className="p7-event-auditorium-featured">
-                <img src={auditorioUm.url} alt="Auditório do 24º andar" loading="lazy" />
-                <img src={auditorioDois.url} alt="Foyer panorâmico do 24º andar" loading="lazy" />
-              </div>
-              <div className="p7-event-thumbs p7-event-thumbs-five">
-                <img src={auditorioTres.url} alt="Vista interna do auditório" loading="lazy" />
-                <img src={auditorioUm.url} alt="Fileiras de assentos do auditório" loading="lazy" />
-                <img src={auditorioDois.url} alt="Detalhe do foyer" loading="lazy" />
-                <img src={auditorioQuatro.url} alt="Área de convivência do 24º andar" loading="lazy" />
-                <img src={auditorioCinco.url} alt="Vista panorâmica do foyer" loading="lazy" />
-              </div>
+              <EventGalleryCarousel images={auditorioImages} label="Galeria do auditório e foyer do 24º andar" />
             </section>
           </div>
         </div>
