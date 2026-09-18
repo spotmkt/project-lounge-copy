@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import contmediLogo from '@/assets/testimonials/contmedi.avif.asset.json';
+import neoVenturesLogo from '@/assets/testimonials/neo-ventures.avif.asset.json';
 
 export const P7Topbar = () => (
   <div className="p7-topbar">
@@ -112,8 +114,13 @@ export const P7Testimonials = ({ ctaHref = '#contato', ctaOnClick }: { ctaHref?:
             expectativas, tornando essa experiência excepcional. Espero poder contar novamente com essa colaboração e
             agradeço pela dedicação e competência."
           </p>
-          <div className="p7-testimonial-name">Renildo Dias</div>
-          <div className="p7-testimonial-company">Empresa: CONTMEDI</div>
+          <div className="p7-testimonial-author">
+            <img src={contmediLogo.url} alt="CONTMEDI" loading="lazy" width={56} height={56} />
+            <div>
+              <div className="p7-testimonial-name">Renildo Dias</div>
+              <div className="p7-testimonial-company">Empresa: CONTMEDI</div>
+            </div>
+          </div>
         </div>
         <div className="p7-testimonial">
           <p>
@@ -121,8 +128,13 @@ export const P7Testimonials = ({ ctaHref = '#contato', ctaOnClick }: { ctaHref?:
             atendimento da equipe é impecável: todos são atenciosos e prestativos. O mobiliário e a estrutura facilitam
             muito a organização, transmitindo segurança e qualidade em cada evento."
           </p>
-          <div className="p7-testimonial-name">Thamis Mattos</div>
-          <div className="p7-testimonial-company">Empresa: NEO VENTURES</div>
+          <div className="p7-testimonial-author">
+            <img src={neoVenturesLogo.url} alt="NEO VENTURES" loading="lazy" width={56} height={56} />
+            <div>
+              <div className="p7-testimonial-name">Thamis Mattos</div>
+              <div className="p7-testimonial-company">Empresa: NEO VENTURES</div>
+            </div>
+          </div>
         </div>
       </div>
       <div className="p7-center">
