@@ -1,10 +1,20 @@
 import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { P7Topbar, P7Benefits, P7Testimonials, P7Footer, useP7Seo } from '../components/p7/P7Shared';
-import { P7Image } from '../components/p7/P7Image';
 import { P7Video } from '../components/p7/P7Video';
 import { formatPhone, onlyDigits, isValidPhone, isValidEmail, isValidNumber, isValidFutureDate, todayISO } from '@/lib/validation';
 import { buildEventosWebhookPayload, sendEventosWebhook } from '@/lib/webhook';
+import terceiroPrincipal from '@/assets/eventos/SJJ_6932.avif.asset.json';
+import terceiroDetalheUm from '@/assets/eventos/41616-6365dab3908b7284c160d80b4cc0d89b.avif.asset.json';
+import terceiroDetalheDois from '@/assets/eventos/IMG_5167.avif.asset.json';
+import terceiroDetalheTres from '@/assets/eventos/IMG_4670__1_.avif.asset.json';
+import modularUm from '@/assets/eventos/WhatsApp_Image_2025-06-30_at_15_49_32.avif.asset.json';
+import modularDois from '@/assets/eventos/Untitled_design__1_.avif.asset.json';
+import auditorioUm from '@/assets/eventos/SJJ_6989.avif.asset.json';
+import auditorioDois from '@/assets/eventos/SJJ_7003.avif.asset.json';
+import auditorioTres from '@/assets/eventos/SJJ_6985.avif.asset.json';
+import auditorioQuatro from '@/assets/eventos/41616-cc112f5104874a9e8e34ae2c3ce63e50__1_.avif.asset.json';
+import auditorioCinco from '@/assets/eventos/SJJ_7016__1_.avif.asset.json';
 import '../styles/p7-pages.css';
 
 const espacos = ['Auditório', '3° Andar', '23° Andar', 'Não tenho certeza'];
@@ -154,31 +164,42 @@ const Eventos = () => {
             No P7, contamos com o espaço ideal para qualquer tipo de evento — palestras, seminários, workshops e muito
             mais. Oferecemos toda a estrutura necessária para que o seu evento seja um sucesso.
           </p>
-          <div className="p7-video-feature">
-            <P7Video videoId="9a4d5233-b7fd-464b-ba61-56cc53162505" title="Espaços para eventos do P7 Criativo" />
-          </div>
-          <div className="p7-spaces">
-            <div className="p7-space">
-              <P7Image image="transmissao" alt="3º andar para eventos e exposições" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
-              <div className="p7-space-body">
-                <h3>3º Andar - Eventos e Exposições</h3>
-                <p>Amplo espaço para feiras, exposições e ativações de marca.</p>
+          <div className="p7-event-galleries">
+            <section className="p7-event-floor">
+              <h3 className="p7-event-floor-title p7-event-floor-title-cyan">3º Andar - Eventos e Exposições</h3>
+              <img className="p7-event-main-image" src={terceiroPrincipal.url} alt="Salão amplo do 3º andar para eventos e exposições" loading="lazy" />
+              <div className="p7-event-thumbs p7-event-thumbs-three">
+                <img src={terceiroDetalheUm.url} alt="Vista lateral do salão do 3º andar" loading="lazy" />
+                <img src={terceiroDetalheDois.url} alt="Espaço aberto do 3º andar" loading="lazy" />
+                <img src={terceiroDetalheTres.url} alt="Outra vista do 3º andar" loading="lazy" />
               </div>
-            </div>
-            <div className="p7-space">
-              <P7Image image="salas" alt="23º andar com salas modulares" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
-              <div className="p7-space-body">
-                <h3>23º - Salas modulares</h3>
-                <p>Configurações flexíveis para treinamentos, cursos e reuniões.</p>
+            </section>
+
+            <section className="p7-event-floor">
+              <h3 className="p7-event-floor-title p7-event-floor-title-pink">23º - Salas modulares</h3>
+              <div className="p7-event-modular-grid">
+                <P7Video videoId="9a4d5233-b7fd-464b-ba61-56cc53162505" title="Salas modulares do 23º andar" vertical />
+                <div className="p7-event-modular-images">
+                  <img src={modularUm.url} alt="Sala modular preparada para treinamento" loading="lazy" />
+                  <img src={modularDois.url} alt="Evento nas salas modulares do 23º andar" loading="lazy" />
+                </div>
               </div>
-            </div>
-            <div className="p7-space">
-              <P7Image image="auditorio" alt="24º andar com auditório e foyer" loading="lazy" sizes="(max-width: 980px) 100vw, 370px" />
-              <div className="p7-space-body">
-                <h3>24° Andar - Auditório e Foyer</h3>
-                <p>Auditório com vista panorâmica de BH e foyer para recepção.</p>
+            </section>
+
+            <section className="p7-event-floor">
+              <h3 className="p7-event-floor-title p7-event-floor-title-orange">24° Andar - Auditório e Foyer</h3>
+              <div className="p7-event-auditorium-featured">
+                <img src={auditorioUm.url} alt="Auditório do 24º andar" loading="lazy" />
+                <img src={auditorioDois.url} alt="Foyer panorâmico do 24º andar" loading="lazy" />
               </div>
-            </div>
+              <div className="p7-event-thumbs p7-event-thumbs-five">
+                <img src={auditorioTres.url} alt="Vista interna do auditório" loading="lazy" />
+                <img src={auditorioUm.url} alt="Fileiras de assentos do auditório" loading="lazy" />
+                <img src={auditorioDois.url} alt="Detalhe do foyer" loading="lazy" />
+                <img src={auditorioQuatro.url} alt="Área de convivência do 24º andar" loading="lazy" />
+                <img src={auditorioCinco.url} alt="Vista panorâmica do foyer" loading="lazy" />
+              </div>
+            </section>
           </div>
         </div>
       </section>
