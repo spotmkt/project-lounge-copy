@@ -1,11 +1,1 @@
-{
-  "version": 1,
-  "asset_id": "a502402e-c814-472f-b817-797661532845",
-  "project_id": "88f9e571-a852-4e29-a70a-8f06969570de",
-  "url": "/__l5e/assets-v1/a502402e-c814-472f-b817-797661532845/WhatsApp_Image_2025-06-30_at_15_49_32.avif",
-  "r2_key": "a/v1/88f9e571-a852-4e29-a70a-8f06969570de/a502402e-c814-472f-b817-797661532845/WhatsApp_Image_2025-06-30_at_15_49_32.avif",
-  "original_filename": "WhatsApp_Image_2025-06-30_at_15_49_32.avif",
-  "size": 235955,
-  "content_type": "image/avif",
-  "created_at": "2026-09-18T20:31:02Z"
-}
+{"version": 1, "asset_id": "a502402e-c814-472f-b817-797661532845", "project_id": "88f9e571-a852-4e29-a70a-8f06969570de", "url": "http://localhost:8091/WhatsApp_Image_2025-06-30_at_15_49_32.avif", "r2_key": "a/v1/88f9e571-a852-4e29-a70a-8f06969570de/a502402e-c814-472f-b817-797661532845/WhatsApp_Image_2025-06-30_at_15_49_32.avif", "original_filename": "WhatsApp_Image_2025-06-30_at_15_49_32.avif", "size": 235955, "content_type": "image/avif", "created_at": "2026-09-18T20:31:02Z"}

@@ -1,11 +1,1 @@
-{
-  "version": 1,
-  "asset_id": "6780d9c7-4c45-4f1b-bb22-3f17304b0df2",
-  "project_id": "88f9e571-a852-4e29-a70a-8f06969570de",
-  "url": "/__l5e/assets-v1/6780d9c7-4c45-4f1b-bb22-3f17304b0df2/IMG_5167.avif",
-  "r2_key": "a/v1/88f9e571-a852-4e29-a70a-8f06969570de/6780d9c7-4c45-4f1b-bb22-3f17304b0df2/IMG_5167.avif",
-  "original_filename": "IMG_5167.avif",
-  "size": 230482,
-  "content_type": "image/avif",
-  "created_at": "2026-09-18T20:30:53Z"
-}
+{"version": 1, "asset_id": "6780d9c7-4c45-4f1b-bb22-3f17304b0df2", "project_id": "88f9e571-a852-4e29-a70a-8f06969570de", "url": "http://localhost:8091/IMG_5167.avif", "r2_key": "a/v1/88f9e571-a852-4e29-a70a-8f06969570de/6780d9c7-4c45-4f1b-bb22-3f17304b0df2/IMG_5167.avif", "original_filename": "IMG_5167.avif", "size": 230482, "content_type": "image/avif", "created_at": "2026-09-18T20:30:53Z"}

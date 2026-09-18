@@ -1,11 +1,1 @@
-{
-  "version": 1,
-  "asset_id": "b39f59fb-7f3d-45c5-9f84-a5f35e25e449",
-  "project_id": "88f9e571-a852-4e29-a70a-8f06969570de",
-  "url": "/__l5e/assets-v1/b39f59fb-7f3d-45c5-9f84-a5f35e25e449/SJJ_6989.avif",
-  "r2_key": "a/v1/88f9e571-a852-4e29-a70a-8f06969570de/b39f59fb-7f3d-45c5-9f84-a5f35e25e449/SJJ_6989.avif",
-  "original_filename": "SJJ_6989.avif",
-  "size": 22401,
-  "content_type": "image/avif",
-  "created_at": "2026-09-18T20:31:11Z"
-}
+{"version": 1, "asset_id": "b39f59fb-7f3d-45c5-9f84-a5f35e25e449", "project_id": "88f9e571-a852-4e29-a70a-8f06969570de", "url": "http://localhost:8091/SJJ_6989.avif", "r2_key": "a/v1/88f9e571-a852-4e29-a70a-8f06969570de/b39f59fb-7f3d-45c5-9f84-a5f35e25e449/SJJ_6989.avif", "original_filename": "SJJ_6989.avif", "size": 22401, "content_type": "image/avif", "created_at": "2026-09-18T20:31:11Z"}
